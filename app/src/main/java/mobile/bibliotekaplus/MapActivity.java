@@ -35,8 +35,10 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -143,14 +145,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference noteRef = db.collection("placowki");
-    private LatLng latLngF = new LatLng(10d,10d);
 
-    private LatLng donwloadDataFirestore(){
-        DocumentReference contactListener=db.collection("placowki").document("1");
-        contactListener.delete();
 
-        return latLngF;
-    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -158,8 +154,33 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Log.d(TAG, "onMapReady: map is ready");
         mMap = googleMap;
 
-        LatLng codingblocks= latLngF;
-        mMap.addMarker(new  MarkerOptions().position(codingblocks).title("Oddział 1"));
+
+        db.collection("placowki")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                GeoPoint geoPoint = document.getGeoPoint("Geopoint");
+                                LatLng latlngDoc = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
+                                mMap.addMarker(new MarkerOptions().position(latlngDoc).title("Oddział"));
+                                Toast.makeText(MapActivity.this, document.getId() + " => " + document.getData(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        } else {
+                            String taskExc = task.getException()+"";
+                            Toast.makeText(MapActivity.this,taskExc , Toast.LENGTH_SHORT).show();
+
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+
+
+
 
         if (mLocationPermissionsGranted) {
             getDeviceLocation();
