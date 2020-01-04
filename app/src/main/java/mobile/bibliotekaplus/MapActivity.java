@@ -24,7 +24,21 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private static final String TAG = "MapActivity";
@@ -127,12 +141,24 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference noteRef = db.collection("placowki");
+    private LatLng latLngF = new LatLng(10d,10d);
+
+    private LatLng donwloadDataFirestore(){
+        DocumentReference contactListener=db.collection("placowki").document("1");
+        contactListener.delete();
+
+        return latLngF;
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         Toast.makeText(this, "Map is Ready ", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onMapReady: map is ready");
         mMap = googleMap;
-        LatLng codingblocks=new LatLng(28.69,77.14);
+
+        LatLng codingblocks= latLngF;
         mMap.addMarker(new  MarkerOptions().position(codingblocks).title("Oddział 1"));
 
         if (mLocationPermissionsGranted) {
