@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "107743049789",
+    "firebase_url": "https://bibliotekaplus.firebaseio.com",
+    "project_id": "bibliotekaplus",
+    "storage_bucket": "bibliotekaplus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107743049789:android:179cb74849b326501fd254",
+        "android_client_info": {
+          "package_name": "mobile.bibliotekaplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107743049789-3udfbd6d5f0n0mr80upc7uknr36vvoko.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mobile.bibliotekaplus",
+            "certificate_hash": "cbea71e1a7e7ba57768ca6fa9fb1ec78517c75d9"
+          }
+        },
+        {
+          "client_id": "107743049789-faiqe12c897av5d6bc87ih8ktct3l0cf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfr0LNzywot93d31RlyGQdjI4WdAY7gCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107743049789-faiqe12c897av5d6bc87ih8ktct3l0cf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
