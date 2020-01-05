@@ -15,6 +15,7 @@
         android:layout_height="175dp"
         android:layout_gravity="center_horizontal"
         android:id="@+id/profile_pic"
+        android:background="@drawable/logo"
         />
     <TextView
         android:layout_width="match_parent"
@@ -22,6 +23,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:textSize="20sp"
+        android:text="Integracja fecbook"
         android:layout_marginTop="20dp"
         android:id="@+id/profile_name"
         />

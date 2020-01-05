@@ -146,13 +146,13 @@ public class logowanie_fb  extends AppCompatActivity {
     private Boolean dodano=false;
 
     private void addUser(String mail){
-        // Create a new user with a first and last name
+        // Create a nnew user with a first and last name
         Map<String, Object> user = new HashMap<>();
         user.put("mail", mail);
         user.put("rola", 2);
         user.put("autor",2);
         user.put("haslo","Autoryzacja przez FB");
-        // Add a new document with a generated ID
+        // Add a nnew document with a generated ID
         TextView editTextMail;
         editTextMail =(TextView) findViewById(R.id.profile_email);
 
