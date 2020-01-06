@@ -33,23 +33,15 @@
         android:layout_centerInParent="true"
         />
 
-    <SearchView
-        android:id="@+id/mySearchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Spacecrafts Searcher"
-        android:padding="5dp"
-        android:hint="🔍 Wyszukaj"
-        android:queryHint="Search.."
-        android:textAlignment="center" />
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context="info.camposha.listviewsearchjson.MainActivity">
+
+
+
         <ProgressBar
             android:id="@+id/myProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -59,12 +51,22 @@
             android:indeterminateBehavior="cycle"
             android:visibility="gone" />
 
-        <ListView
-            android:id="@+id/myListView"
-            android:layout_weight="0.5"
-            android:numColumns="auto_fit"
+        <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/kreskowy" />
+
+        />
+
+
+        <TextView
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:id="@+id/wybranaPlacowka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wybrana placówka: " />
 
         <Button
             android:onClick="OnClickRealizuj"
@@ -76,7 +78,7 @@
             android:layout_marginBottom="8dp"
             android:layout_gravity="center"
             android:background="@drawable/custom_button"
-            android:text="Realizuj koszyk"
+            android:text="Powrot do menu"
             android:textAllCaps="false"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="20sp"

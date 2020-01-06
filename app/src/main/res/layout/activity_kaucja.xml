@@ -50,6 +50,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context="info.camposha.listviewsearchjson.MainActivity">
+
+
         <ProgressBar
             android:id="@+id/myProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -59,12 +61,22 @@
             android:indeterminateBehavior="cycle"
             android:visibility="gone" />
 
+
+
+        <TextView
+            android:padding="10dp"
+            android:textSize="25dp"
+            android:id="@+id/kaucjeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
         <ListView
             android:id="@+id/myListView"
-            android:layout_weight="0.5"
-            android:numColumns="auto_fit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:numColumns="1"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
 
         <Button
             android:onClick="OnClickRealizuj"
@@ -76,7 +88,7 @@
             android:layout_marginBottom="8dp"
             android:layout_gravity="center"
             android:background="@drawable/custom_button"
-            android:text="Realizuj koszyk"
+            android:text="Dalej"
             android:textAllCaps="false"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="20sp"

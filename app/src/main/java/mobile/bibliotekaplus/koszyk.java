@@ -1,6 +1,7 @@
 package mobile.bibliotekaplus;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -388,5 +389,10 @@ public class koszyk extends AppCompatActivity {
     ListView myListView;
     koszyk.ListViewAdapter adapter;
 
+
+    public void OnClickRealizuj(View view) {
+        Intent intent = new Intent(this, koszykPlacowka.class);
+        this.startActivity ( intent );
+    }
 
 }

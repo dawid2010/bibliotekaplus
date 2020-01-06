@@ -59,12 +59,23 @@
             android:indeterminateBehavior="cycle"
             android:visibility="gone" />
 
-        <ListView
-            android:id="@+id/myListView"
-            android:layout_weight="0.5"
-            android:numColumns="auto_fit"
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="350dp"
+            android:id="@+id/map"
+            tools:context=".MapsActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+/>
+
+
+        <TextView
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:id="@+id/selectedMarker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wybierz placówkę" />
 
         <Button
             android:onClick="OnClickRealizuj"
@@ -76,7 +87,7 @@
             android:layout_marginBottom="8dp"
             android:layout_gravity="center"
             android:background="@drawable/custom_button"
-            android:text="Realizuj koszyk"
+            android:text="Dalej"
             android:textAllCaps="false"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="20sp"
