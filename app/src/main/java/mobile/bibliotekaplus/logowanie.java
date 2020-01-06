@@ -25,11 +25,13 @@ import java.util.ArrayList;
 public class logowanie extends AppCompatActivity {
 
     private ImageView imageView;
-
+    private GlobalClass globalClass;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logowanie);
+        globalClass =(GlobalClass) getApplicationContext();
+
         imageView =(ImageView) findViewById(R.id.logo);
         loadUser();
         animateShakeLogo();
@@ -48,6 +50,7 @@ public class logowanie extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(validateUser()) {
+
                     Intent intent = new Intent(logowanie.this, menu_glowne.class);
                     startActivity(intent);
                 }
@@ -82,6 +85,7 @@ public class logowanie extends AppCompatActivity {
                                 String hasloF = document.getString("haslo");
                                 uzytkownik.add(mailF);
                                 uzytkownik.add(hasloF);
+                                uzytkownik.add(document.getId());
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {
@@ -105,6 +109,7 @@ public class logowanie extends AppCompatActivity {
             if(u.get(0).equals(mail)){
                 if(u.get(1).equals(haslo)){
                     autoryzacja=true;
+                    globalClass.setUserId(u.get(2));
                 }
                 else{
                     Toast.makeText(this,"Błędne hasło",Toast.LENGTH_SHORT).show();

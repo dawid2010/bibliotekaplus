@@ -158,7 +158,6 @@ public class logowanie_fb  extends AppCompatActivity {
 
 
         if(!loadUserAuth(mail)) {
-
             db.collection("uzytkownicy")
                     .add(user)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

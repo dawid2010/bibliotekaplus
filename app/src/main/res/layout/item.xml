@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="@drawable/tlo"
+    >
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/spacecraftImageView"
+            android:layout_gravity="center_vertical"
+            android:layout_width="204dp"
+            android:layout_height="235dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:src="@drawable/placeholder" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/propellantTextView"
+            android:layout_below="@+id/spacecraftImageView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="-203dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="-65dp"
+            android:layout_toRightOf="@+id/spacecraftImageView"
+            android:padding="5dp"
+            android:text="Spacecraft Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/propellantTextView"
+
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spacecraftImageView"
+            android:layout_alignBottom="@+id/spacecraftImageView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="84dp"
+            android:layout_marginBottom="-119dp"
+            android:layout_toRightOf="@+id/spacecraftImageView"
+            android:padding="5dp"
+            android:text="Propellant"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="italic" />
+
+        <CheckBox
+            android:layout_gravity="center_vertical"
+            android:id="@+id/myCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:text="Tech Exists?"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/item_swipe_left_indicator"
+        android:alpha="0"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:background="#A5F" />
+
+    <View
+        android:id="@+id/item_swipe_right_indicator"
+        android:alpha="0"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="right"
+        android:background="#5AF" />
+
+</FrameLayout>

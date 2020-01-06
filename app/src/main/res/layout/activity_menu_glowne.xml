@@ -7,6 +7,33 @@
     tools:context=".menu_glowne"
     android:background="@drawable/tlo">
 
+
+    <com.lorentzos.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/btnkoszyk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.493"
+        app:rotation_degrees="15.5"
+        tools:context=".MyActivity" />
+
+    <ProgressBar
+        android:id="@+id/myProgressBarGlowna"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/btnMap"
         android:layout_width="62dp"
@@ -15,10 +42,11 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/map"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
+        app:layout_constraintStart_toEndOf="@+id/btnnowosci" />
 
     <ImageView
         android:id="@+id/imageView"
+        android:layout_margin="7dp"
         android:layout_width="30dp"
         android:layout_height="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,17 +54,17 @@
         app:srcCompat="@drawable/settings" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnnowosci"
         android:layout_width="62dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/mowy"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/btnkoszyk" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnszukaj"
         android:layout_width="62dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -46,24 +74,24 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnkoszyk"
         android:layout_width="62dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/koszyk"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button6" />
+        app:layout_constraintStart_toEndOf="@+id/btnpropozycje" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnpropozycje"
         android:layout_width="62dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/plus"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button4" /><![CDATA[
+        app:layout_constraintStart_toEndOf="@+id/btnszukaj" /><![CDATA[
 
     />
 
