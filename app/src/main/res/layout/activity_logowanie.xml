@@ -8,16 +8,6 @@
     android:background="@drawable/tlo"
     >
 
-    <ImageView
-        android:id="@+id/logo2"
-        android:layout_width="38dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/reguser" />
-
     <Button
         android:id="@+id/logowanie_d"
         android:layout_width="263dp"
@@ -125,5 +115,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
        />
+
+    <Button
+        android:id="@+id/btnrejestracja"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/reguser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

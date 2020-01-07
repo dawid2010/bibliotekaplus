@@ -23,20 +23,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONObject;
-
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -303,9 +296,9 @@ public class menu_glowne extends AppCompatActivity {
                 view= LayoutInflater.from(c).inflate(R.layout.item,viewGroup,false);
             }
 
-            TextView txtName = view.findViewById(R.id.nameTextView);
-            TextView txtPropellant = view.findViewById(R.id.propellantTextView);
-            TextView txtPropellant2 = view.findViewById(R.id.propellantTextView2);
+            TextView txtName = view.findViewById(R.id.textKod);
+            TextView txtPropellant = view.findViewById(R.id.rejdata);
+            TextView txtPropellant2 = view.findViewById(R.id.textPlacowka);
             TextView txtPropellant3 = view.findViewById(R.id.propellantTextView3);
             CheckBox chkTechExists = view.findViewById(R.id.myCheckBox);
             ImageView spacecraftImageView = view.findViewById(R.id.spacecraftImageView);

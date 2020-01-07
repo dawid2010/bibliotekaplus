@@ -43,7 +43,10 @@
         <activity android:name=".propozycje" />
         <activity android:name=".koszyk" />
         <activity android:name=".nowosci" />
-
+        <activity android:name=".rejestracja" />
+        <activity android:name=".kody" />
+        <activity android:name=".ustawienia" />
+        <activity android:name=".kody_szcz" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCUI864TMgeS2gWTf2u6TITPPDuQms4TjA" />

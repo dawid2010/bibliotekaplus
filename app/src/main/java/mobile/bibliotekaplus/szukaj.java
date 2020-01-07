@@ -85,8 +85,6 @@ public class szukaj  extends AppCompatActivity {
         exampleDialog.show(getSupportFragmentManager(),"example");
     }
 
-
-
     /*
 
     Our HTTP Client
@@ -170,7 +168,6 @@ public class szukaj  extends AppCompatActivity {
             return downloadedData;
         }
     }
-
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 

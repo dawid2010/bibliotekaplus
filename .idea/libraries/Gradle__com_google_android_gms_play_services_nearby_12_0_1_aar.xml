@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.gms:play-services-nearby:12.0.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8bb6c36e8604b8f95ce74513a5c094ee/play-services-nearby-12.0.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8bb6c36e8604b8f95ce74513a5c094ee/play-services-nearby-12.0.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-nearby-12.0.1.aar/9fdb028cd52e9c7b408ca0a6b4ed1559/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-nearby-12.0.1.aar/9fdb028cd52e9c7b408ca0a6b4ed1559/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

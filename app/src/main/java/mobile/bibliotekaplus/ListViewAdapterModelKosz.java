@@ -47,9 +47,9 @@ public class ListViewAdapterModelKosz extends BaseAdapter implements Filterable 
             view= LayoutInflater.from(c).inflate(R.layout.model,viewGroup,false);
         }
 
-        TextView txtName = view.findViewById(R.id.nameTextView);
-        TextView txtPropellant = view.findViewById(R.id.propellantTextView);
-        TextView txtPropellant2 = view.findViewById(R.id.propellantTextView2);
+        TextView txtName = view.findViewById(R.id.textKod);
+        TextView txtPropellant = view.findViewById(R.id.rejdata);
+        TextView txtPropellant2 = view.findViewById(R.id.textPlacowka);
         TextView txtPropellant3 = view.findViewById(R.id.propellantTextView3);
         CheckBox chkTechExists = view.findViewById(R.id.myCheckBox);
         ImageView spacecraftImageView = view.findViewById(R.id.spacecraftImageView);
@@ -100,8 +100,13 @@ public class ListViewAdapterModelKosz extends BaseAdapter implements Filterable 
             public void onClick(View view) {
 
                 Toast.makeText(c, s.getName(), Toast.LENGTH_SHORT).show();
-                koszyk k=(koszyk) c;
-                k.openDialog(s.getId());
+                try {
+                    koszyk k = (koszyk) c;
+                    k.openDialog(s.getId());
+                }
+                catch(java.lang.ClassCastException e){
+
+                }
             }
         });
 

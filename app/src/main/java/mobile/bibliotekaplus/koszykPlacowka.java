@@ -194,11 +194,11 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                     for (int i = 0; i < grantResults.length; i++) {
                         if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                             mLocationPermissionsGranted = false;
-                            Log.d(TAG, "onMapReady: map is failed");
+
                             return;
                         }
                     }
-                    Log.d(TAG, "onMapReady: map is success");
+
                     mLocationPermissionsGranted = true;
                     initMap();
                 }
@@ -211,8 +211,7 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Toast.makeText(this, "Map is Ready ", Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "onMapReady: map is ready");
+
         mMap = googleMap;
 
 

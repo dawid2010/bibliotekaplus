@@ -6,6 +6,15 @@ public class GlobalClass extends Application {
     private String userId;
     private String ksiazkaId;
     private Double userWiek;
+    private String zamowienieId;
+
+    public String getZamowienieId() {
+        return zamowienieId;
+    }
+
+    public void setZamowienieId(String zamowienieId) {
+        this.zamowienieId = zamowienieId;
+    }
 
     public Double getUserWiek() {
         return userWiek;

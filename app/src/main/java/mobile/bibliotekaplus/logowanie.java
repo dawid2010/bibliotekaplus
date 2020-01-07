@@ -37,6 +37,7 @@ public class logowanie extends AppCompatActivity {
         animateShakeLogo();
         init();
         initFB();
+        initRejestracja();
     }
 
     private void animateShakeLogo() {
@@ -58,13 +59,25 @@ public class logowanie extends AppCompatActivity {
         });
     }
 
+    private void initRejestracja(){
+        Button btnMap = (Button) findViewById(R.id.btnrejestracja);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                    Intent intent = new Intent(logowanie.this, rejestracja.class);
+                    startActivity(intent);
+
+            }
+        });
+    }
+
     private void initFB(){
         Button btnMap = (Button) findViewById(R.id.logowanie_fb);
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                    Intent intent = new Intent(logowanie.this, logowanie_fb.class);
-                    startActivity(intent);
+                Intent intent = new Intent(logowanie.this, logowanie_fb.class);
+                startActivity(intent);
 
             }
         });

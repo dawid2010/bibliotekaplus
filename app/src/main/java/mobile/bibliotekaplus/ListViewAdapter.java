@@ -47,9 +47,9 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
             view= LayoutInflater.from(c).inflate(R.layout.item,viewGroup,false);
         }
 
-        TextView txtName = view.findViewById(R.id.nameTextView);
-        TextView txtPropellant = view.findViewById(R.id.propellantTextView);
-        TextView txtPropellant2 = view.findViewById(R.id.propellantTextView2);
+        TextView txtName = view.findViewById(R.id.textKod);
+        TextView txtPropellant = view.findViewById(R.id.rejdata);
+        TextView txtPropellant2 = view.findViewById(R.id.textPlacowka);
         TextView txtPropellant3 = view.findViewById(R.id.propellantTextView3);
         CheckBox chkTechExists = view.findViewById(R.id.myCheckBox);
         ImageView spacecraftImageView = view.findViewById(R.id.spacecraftImageView);
