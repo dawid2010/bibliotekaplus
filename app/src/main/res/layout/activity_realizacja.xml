@@ -84,6 +84,14 @@
             android:layout_height="wrap_content"
             android:text="Wybrana placówka: " />
 
+        <TextView
+            android:id="@+id/wybranaPlacowkaAdres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Adres: "
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/realizuj"
             android:layout_width="267dp"

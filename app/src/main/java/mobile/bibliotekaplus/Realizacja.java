@@ -69,9 +69,12 @@ public class Realizacja extends AppCompatActivity {
         TextView kod = findViewById(R.id.textViewKod);
         kod.setText(generateRandomPassword(8));
         TextView wybranaPlacowka = findViewById(R.id.wybranaPlacowka);
+        TextView wybranaPlacowkaAdres = findViewById(R.id.wybranaPlacowkaAdres);
         Intent intent = getIntent();
         String placowka = intent.getExtras().getString("placowka");
         wybranaPlacowka.setText("Wybrana placówka: "+placowka);
+        String adres = intent.getExtras().getString("adres");
+        wybranaPlacowkaAdres.setText("Adres: "+adres);
         kodS = kod.getText().toString();
         dataDzis = Calendar.getInstance().getTime();
         updateZamowienie();

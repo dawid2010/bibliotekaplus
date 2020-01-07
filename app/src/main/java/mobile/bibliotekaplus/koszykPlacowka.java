@@ -82,7 +82,9 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
     private FusedLocationProviderClient mFusedLocationProviderClient;
 
     TextView selectedMarkerTextView;
+    TextView selectedMarkerAdres;
     String selectedMarkerName = null;
+    String selectedMarkerUlica = null;
 
     Button realizujButton;
 
@@ -119,7 +121,7 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
         SearchView mySearchView=findViewById(R.id.mySearchView);
 
         selectedMarkerTextView = findViewById(R.id.selectedMarker);
-
+        selectedMarkerAdres = findViewById(R.id.selectedMarkerAdres);
 
         getLocationPermission();
 
@@ -225,8 +227,9 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 GeoPoint geoPoint = document.getGeoPoint("Geopoint");
                                 String nazwaOddzialu = document.getString("nazwaOddzialu");
+                                String adres = document.getString("Adres");
                                 LatLng latlngDoc = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
-                                mMap.addMarker(new MarkerOptions().position(latlngDoc).title(nazwaOddzialu));
+                                mMap.addMarker(new MarkerOptions().position(latlngDoc).title(nazwaOddzialu).snippet(adres));
                                 Toast.makeText(koszykPlacowka.this, document.getId() + " => " + document.getData(), Toast.LENGTH_SHORT).show();
 
                             }
@@ -256,7 +259,9 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                 if (selectedMarkerName == null) {
                     marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
                     selectedMarkerName = marker.getTitle();
+                    selectedMarkerUlica = marker.getSnippet();
                     selectedMarkerTextView.setText("Wybrana placówka: "+ selectedMarkerName);
+                    selectedMarkerAdres.setText("Adres:"+ selectedMarkerUlica);
                     marker.showInfoWindow();
                 }
                 else
@@ -265,7 +270,9 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                     {
                         marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
                         selectedMarkerName = null;
+                        selectedMarkerUlica = null;
                         selectedMarkerTextView.setText("Wybierz placówkę");
+                        selectedMarkerAdres.setText("");
                     }
                 }
                 return true;
@@ -281,6 +288,7 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
         {
             Intent intent = new Intent(this, Kaucja.class);
             intent.putExtra("placowka", selectedMarkerName);
+            intent.putExtra("adres", selectedMarkerUlica);
             this.startActivity ( intent );
         }
 

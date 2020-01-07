@@ -77,6 +77,14 @@
             android:layout_height="wrap_content"
             android:text="Wybierz placówkę" />
 
+        <TextView
+            android:id="@+id/selectedMarkerAdres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text=""
+            android:textSize="20sp" />
+
         <Button
             android:onClick="OnClickRealizuj"
             android:id="@+id/realizuj"

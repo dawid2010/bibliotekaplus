@@ -53,6 +53,7 @@ import java.util.Map;
 public class Kaucja extends AppCompatActivity {
     private GlobalClass globalClass;
     String placowka;
+    String selectedMarkerUlica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +96,7 @@ public class Kaucja extends AppCompatActivity {
                 TextView kaucjeTextView = findViewById(R.id.kaucjeTextView);
                 String textToDisplay = "";
                 for (Book book : books) {
-                    textToDisplay = textToDisplay + "\n" + book.name + " - " + " Kaucja: 50gr za dzień";
+                    textToDisplay = textToDisplay + "\n" + book.name + " - " + " Kaucja: " + String.valueOf(book.getKaucja()) + " zł" ;
                 }
                 kaucjeTextView.setText(textToDisplay);
                 //Toast.makeText(Kaucja.this,"gotowe" , Toast.LENGTH_SHORT).show();
@@ -106,6 +107,8 @@ public class Kaucja extends AppCompatActivity {
 
         Intent intent = getIntent();
         placowka = intent.getExtras().getString("placowka");
+        selectedMarkerUlica = intent.getExtras().getString("adres");
+
 
     }
 
@@ -120,6 +123,7 @@ public class Kaucja extends AppCompatActivity {
         private String propellant;
         private String imageURL;
         private int technologyExists;
+        private double kaucja;
         /*
         GETTERS AND SETTERS
          */
@@ -153,6 +157,12 @@ public class Kaucja extends AppCompatActivity {
         public void setTechnologyExists(int technologyExists) {
             this.technologyExists = technologyExists;
         }
+        public double getKaucja() {
+            return kaucja;
+        }
+        public void setKaucja(double kaucja) {
+            this.kaucja = kaucja;
+        }
         /*
         TOSTRING
          */
@@ -168,6 +178,7 @@ public class Kaucja extends AppCompatActivity {
     private String techExists;
     private String imageURL;
     private Book s;
+    private double kaucja;
     public class JSONDownloader {
 
         //SAVE/RETRIEVE URLS
@@ -208,12 +219,14 @@ public class Kaucja extends AppCompatActivity {
                                                         propellant = "t";
                                                         techExists = "t";
                                                         imageURL = daneUzytkownika.getString("okladka");
+                                                        kaucja = daneUzytkownika.getDouble("kaucja");
                                                         s = new Kaucja.Book();
                                                         s.setId(daneUzytkownika.getId());
                                                         s.setName(name);
                                                         s.setPropellant(propellant);
                                                         s.setImageURL(imageURL);
                                                         s.setTechnologyExists(techExists.equalsIgnoreCase("1") ? 1 : 0);
+                                                        s.setKaucja(kaucja);
                                                         downloadedData.add(s);
                                                         //Toast.makeText(Kaucja.this,name , Toast.LENGTH_SHORT).show();
                                                     }
@@ -241,6 +254,7 @@ public class Kaucja extends AppCompatActivity {
     public void OnClickRealizuj(View view) {
         Intent intent = new Intent(this, Realizacja.class);
         intent.putExtra("placowka", placowka);
+        intent.putExtra("adres", selectedMarkerUlica);
         this.startActivity ( intent );
     }
 

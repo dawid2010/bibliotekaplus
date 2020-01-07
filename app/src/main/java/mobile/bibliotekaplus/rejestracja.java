@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,7 +16,14 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class rejestracja extends AppCompatActivity {
 
@@ -64,17 +73,18 @@ public class rejestracja extends AppCompatActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-               Boolean rejestracjaPomyslna=false;
+               Boolean rejestracjaPomyslna = false;
 
-                RadioButton plecK2 = (RadioButton) findViewById(R.id.rejplec);
+               String plec;
+                RadioButton plecK = (RadioButton) findViewById(R.id.rejplec);
                 RadioButton plecM = (RadioButton) findViewById(R.id.rejplecM);
                 EditText haslo = (EditText)findViewById(R.id.rejhaslo);
                 EditText haslo2 = (EditText)findViewById(R.id.rejhaslo2);
                 EditText mail = (EditText)findViewById(R.id.rejemail);
                 EditText data = (EditText)findViewById(R.id.rejdata);
-                if(!mail.getText().equals("")){
-                    if(!haslo.getText().equals("")){
-                        if(haslo.getText().equals(haslo2.getText())){
+                if(!mail.getText().toString().equals("")){
+                    if(!haslo.getText().toString().equals("")){
+                        if(haslo.getText().toString().equals(haslo2.getText().toString())){
                             if(!data.getText().equals("")){
                                 rejestracjaPomyslna=true;
                             }
@@ -94,7 +104,42 @@ public class rejestracja extends AppCompatActivity {
                     Toast.makeText(rejestracja.this, "Uzupełnij mail ", Toast.LENGTH_SHORT).show();
                 }
 
+                 FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                if(plecK.isChecked())
+                {
+                    plec = "K";
+                }
+                else
+                {
+                    plec = "M";
+                }
+
+                Map<String, Object> user = new HashMap<>();
+                user.put("autor", "User");
+                user.put("mail", mail.getText().toString());
+                user.put("haslo", haslo.getText().toString());
+                user.put("rola", 2);
+                user.put("plec", plec.toString());
+                user.put("dataUrodzenia", data.toString());
+
                 if(rejestracjaPomyslna) {
+                    db.collection("uzytkownicy").document(mail.getText().toString())
+                            .set(user)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("Firebase", "DocumentSnapshot successfully written!");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w("Firebase", "Error writing document", e);
+                                }
+                            });
+
+                    Toast.makeText(rejestracja.this, "Uzytkownik został utworzony! ", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(rejestracja.this, logowanie.class);
                     startActivity(intent);
                 }
