@@ -46,7 +46,6 @@ import java.util.Random;
 public class menu_glowne extends AppCompatActivity {
 
     private static final String TAG = "menu_glowne";
-
     private static final int ERROR_DIALOG_REQUEST = 9001;
     private ArrayList<Spacecraft> al;
     ListViewAdapter arrayAdapter;
@@ -55,6 +54,8 @@ public class menu_glowne extends AppCompatActivity {
     private ProgressBar myProgressBar;
     ListView myListView;
     private GlobalClass globalClass;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,16 +70,17 @@ public class menu_glowne extends AppCompatActivity {
             initPropozycje();
             initKoszyk();
             initNowosci();
-
+            initUstawienia();
+            initKody();
             al = new ArrayList<>();
             Spacecraft sp = new Spacecraft();
-            sp.name="TEST";
+            sp.setName("Przesuwaj w prawo, aby dodawać do koszyka");
             al.add(sp);
-
             arrayAdapter=new ListViewAdapter(this,al);
-            SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
+            SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
             flingContainer.setAdapter(arrayAdapter);
+
             flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
                 @Override
                 public void removeFirstObjectInAdapter() {
@@ -91,7 +93,7 @@ public class menu_glowne extends AppCompatActivity {
                 @Override
                 public void onLeftCardExit(Object dataObject) {
                     Spacecraft newSp = (Spacecraft) dataObject;
-                    if(newSp.name.equals("TEST")){
+                    if(newSp.getName().equals("Przesuwaj w prawo, aby dodawać do koszyka")){
                         makeToast(menu_glowne.this, "Tym sposobem odrzuczasz książki!");
                     }
                     else {
@@ -103,19 +105,19 @@ public class menu_glowne extends AppCompatActivity {
                 @Override
                 public void onRightCardExit(Object dataObject) {
                     Spacecraft newSp = (Spacecraft) dataObject;
-                    if(newSp.getId().equals("TEST")){
+                    if(newSp.getId().equals("Przesuwaj w prawo, aby dodawać do koszyka")){
                         makeToast(menu_glowne.this, "Tym sposobem dodajesz książki do koszyka!");
                     }
                     else {
                         makeToast(menu_glowne.this, "Dodałeś ksiązkę do koszyka!");
                         Map<String, Object> user = new HashMap<>();
-
-
                         DocumentReference ksiazka = db.document("ksiazka/" + newSp.getId());
                         DocumentReference uzytkownik = db.document("uzytkownicy/" + globalClass.getUserId());
+                        Boolean realizacja = false;
                         user.put("ksiazka", ksiazka);
                         user.put("uzytkownik", uzytkownik);
-
+                        user.put("zrealizowany",realizacja);
+                        user.put("wiekU",globalClass.getUserWiek());
                         // Add a nnew document with a generated ID
                         TextView editTextMail;
                         editTextMail = (TextView) findViewById(R.id.profile_email);
@@ -158,7 +160,6 @@ public class menu_glowne extends AppCompatActivity {
                 }
             });
 
-
             // Optionally add an OnItemClickListener
             flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
                 @Override
@@ -168,10 +169,10 @@ public class menu_glowne extends AppCompatActivity {
             });
         }
     }
-        static void makeToast(Context ctx, String s){
+
+    static void makeToast(Context ctx, String s){
             Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
         }
-
 
     private void initSzukaj() {
         Button btnMap = (Button) findViewById(R.id.btnszukaj);
@@ -201,6 +202,28 @@ public class menu_glowne extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(menu_glowne.this, nowosci.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initUstawienia() {
+        Button btnMap = (Button) findViewById(R.id.btnustawienia);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(menu_glowne.this, ustawienia.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initKody() {
+        Button btnMap = (Button) findViewById(R.id.btnkody);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(menu_glowne.this, kody.class);
                 startActivity(intent);
             }
         });
@@ -246,115 +269,8 @@ public class menu_glowne extends AppCompatActivity {
         return false;
     }
 
-    public class Spacecraft {
-        /*
-        INSTANCE FIELDS
-         */
-        private String id;
-        private String name;
-        private String propellant;
-        private String imageURL;
-        private int technologyExists;
-        /*
-        GETTERS AND SETTERS
-         */
-        public String getId() {
-            return id;
-        }
-        public void setId(String id) {
-            this.id = id;
-        }
-        public String getName() {
-            return name;
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-        public String getPropellant() {
-            return propellant;
-        }
-        public void setPropellant(String propellant) {
-            this.propellant = propellant;
-        }
-        public String getImageURL() {
-            return imageURL;
-        }
-        public void setImageURL(String imageURL) {
-            this.imageURL = imageURL;
-        }
-        public int getTechnologyExists() {
-            return technologyExists;
-        }
-        public void setTechnologyExists(int technologyExists) {
-            this.technologyExists = technologyExists;
-        }
-        /*
-        TOSTRING
-         */
-        @Override
-        public String toString() {
-            return name;
-        }
-    }
-
     ArrayList<Spacecraft> spacecrafts = new ArrayList<>();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    public class JSONDownloader {
-
-        //SAVE/RETRIEVE URLS
-
-        //INSTANCE FIELDS
-        private final Context c;
-
-        public JSONDownloader(Context c) {
-            this.c = c;
-        }
-        /*
-        Fetch JSON Data
-         */
-        public ArrayList<menu_glowne.Spacecraft> retrieve(final ListView mListView, final ProgressBar myProgressBar)
-        {
-            final ArrayList<menu_glowne.Spacecraft> downloadedData=new ArrayList<>();
-            myProgressBar.setIndeterminate(true);
-            myProgressBar.setVisibility(View.VISIBLE);
-
-            db.collection("ksiazka")
-                    .get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            JSONObject jo;
-                            Spacecraft s;
-                            if (task.isSuccessful()) {
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    String id= document.getId();
-                                    String name=document.getString("tytul");
-                                    String propellant="t";
-                                    String techExists="t";
-                                    String imageURL=document.getString("okladka");
-
-                                    s= new Spacecraft();
-                                    s.setId(id);
-                                    s.setName(name);
-                                    s.setPropellant(propellant);
-                                    s.setImageURL(imageURL);
-                                    s.setTechnologyExists(techExists.equalsIgnoreCase("1") ? 1 : 0);
-
-                                    downloadedData.add(s);
-                                }
-                                myProgressBar.setVisibility(View.GONE);
-
-                            } else {
-                                String taskExc = task.getException()+"";
-                                Toast.makeText(menu_glowne.this,taskExc , Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-
-                    });
-            return downloadedData;
-        }
-    }
 
     public class ListViewAdapter extends BaseAdapter implements Filterable {
 
@@ -389,6 +305,8 @@ public class menu_glowne extends AppCompatActivity {
 
             TextView txtName = view.findViewById(R.id.nameTextView);
             TextView txtPropellant = view.findViewById(R.id.propellantTextView);
+            TextView txtPropellant2 = view.findViewById(R.id.propellantTextView2);
+            TextView txtPropellant3 = view.findViewById(R.id.propellantTextView3);
             CheckBox chkTechExists = view.findViewById(R.id.myCheckBox);
             ImageView spacecraftImageView = view.findViewById(R.id.spacecraftImageView);
 
@@ -396,9 +314,35 @@ public class menu_glowne extends AppCompatActivity {
 
             txtName.setText(s.getName());
             txtPropellant.setText(s.getPropellant());
+            if(s.getGatunek()==null){
+                txtPropellant2.setText("");
+            }
+            else{
+                txtPropellant2.setText("S: "+s.getRodzaj()+" "+s.getGatunek());
+            }
+            if(s.getEpoka()==null) {
+                txtPropellant3.setText("");
+            }
+            else{
+                txtPropellant3.setText("Epoka: "+s.getEpoka());
+            }
+
+
             //chkTechExists.setEnabled(true);
-            chkTechExists.setChecked( s.getTechnologyExists()==1);
-            chkTechExists.setEnabled(false);
+
+            if(s.getEpoka()==null){
+                chkTechExists.setWidth(0);
+                chkTechExists.setHeight(0);
+            }
+            else {
+                if (s.getKaucja() != null) {
+                    if (s.getKaucja() > 0.00) {
+                        chkTechExists.setChecked(s.getKaucja() > 0.00d);
+                        chkTechExists.setText("Kaucja:" + s.getKaucja() + " zł");
+                    }
+                }
+            }
+                        chkTechExists.setEnabled(false);
 
             if(s.getImageURL() != null && s.getImageURL().length()>0)
             {

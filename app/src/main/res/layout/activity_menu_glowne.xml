@@ -8,20 +8,29 @@
     android:background="@drawable/tlo">
 
 
+    <Button
+        android:id="@+id/btnustawienia"
+        android:layout_width="40dp"
+        android:layout_height="37dp"
+        android:layout_margin="7dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-
         app:layout_constraintBottom_toTopOf="@+id/btnkoszyk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.493"
+        app:layout_constraintTop_toBottomOf="@+id/btnustawienia"
         app:rotation_degrees="15.5"
         tools:context=".MyActivity" />
 
@@ -43,15 +52,6 @@
         android:background="@drawable/map"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnnowosci" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_margin="7dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settings" />
 
     <Button
         android:id="@+id/btnnowosci"
@@ -91,7 +91,17 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/plus"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnszukaj" /><![CDATA[
+        app:layout_constraintStart_toEndOf="@+id/btnszukaj" />
+
+    <Button
+        android:id="@+id/btnkody"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/code"
+        app:layout_constraintEnd_toStartOf="@+id/btnustawienia"
+        app:layout_constraintTop_toTopOf="parent" /><![CDATA[
 
     />
 

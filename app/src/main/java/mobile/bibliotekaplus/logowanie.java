@@ -83,9 +83,11 @@ public class logowanie extends AppCompatActivity {
                                 ArrayList<String> uzytkownik = new ArrayList<>();
                                 String mailF = document.getString("mail");
                                 String hasloF = document.getString("haslo");
+                                Double wiek = document.getDouble("wiek");
                                 uzytkownik.add(mailF);
                                 uzytkownik.add(hasloF);
                                 uzytkownik.add(document.getId());
+                                uzytkownik.add(wiek+"");
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {
@@ -110,6 +112,7 @@ public class logowanie extends AppCompatActivity {
                 if(u.get(1).equals(haslo)){
                     autoryzacja=true;
                     globalClass.setUserId(u.get(2));
+                    globalClass.setUserWiek(Double.parseDouble(u.get(3)));
                 }
                 else{
                     Toast.makeText(this,"Błędne hasło",Toast.LENGTH_SHORT).show();

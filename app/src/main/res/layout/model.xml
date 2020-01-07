@@ -5,51 +5,80 @@
     android:layout_height="180dp"
 
     >
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/tlo"
-        >
+        android:background="@drawable/tlo">
+
+        <TextView
+            android:id="@+id/propellantTextView3"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/propellantTextView2"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="1dp"
+            android:layout_toRightOf="@+id/spacecraftImageView"
+            android:padding="5dp"
+            android:text="Propellant"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/propellantTextView2"
+            android:layout_width="249dp"
+            android:layout_height="36dp"
+            android:layout_below="@+id/propellantTextView"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/spacecraftImageView"
+            android:padding="5dp"
+            android:text="Propellant"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="italic" />
+
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
             android:id="@+id/spacecraftImageView"
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
             android:padding="5dp"
             android:src="@drawable/placeholder" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Spacecraft Name"
             android:id="@+id/nameTextView"
-            android:padding="5dp"
-            android:textColor="@color/colorAccent"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/spacecraftImageView" />
+            android:layout_toRightOf="@+id/spacecraftImageView"
+            android:padding="5dp"
+            android:text="Spacecraft Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorAccent" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Propellant"
-            android:textStyle="italic"
             android:id="@+id/propellantTextView"
+            android:layout_width="249dp"
+            android:layout_height="32dp"
+            android:layout_below="@+id/nameTextView"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/spacecraftImageView"
             android:padding="5dp"
-            android:layout_alignBottom="@+id/spacecraftImageView"
-            android:layout_toRightOf="@+id/spacecraftImageView" />
+            android:text="Propellant"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="italic" />
 
         <CheckBox
             android:id="@+id/myCheckBox"
-            android:layout_width="178dp"
-            android:layout_height="33dp"
-            android:layout_below="@+id/nameTextView"
+            android:layout_width="250dp"
+            android:layout_height="34dp"
+            android:layout_below="@+id/propellantTextView3"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="47dp"
-            android:layout_marginRight="47dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_toEndOf="@+id/spacecraftImageView"
             android:text="Czy wymagana kaucja" />
 

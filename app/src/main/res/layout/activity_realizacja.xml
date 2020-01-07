@@ -41,7 +41,6 @@
         tools:context="info.camposha.listviewsearchjson.MainActivity">
 
 
-
         <ProgressBar
             android:id="@+id/myProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -51,14 +50,31 @@
             android:indeterminateBehavior="cycle"
             android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:srcCompat="@drawable/kreskowy" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Wygenerowany kod:"
+            android:textSize="30sp"
+            android:textStyle="bold" /><![CDATA[
 
         />
 
+
+        ]]>
+
+        <TextView
+            android:id="@+id/textViewKod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:text="KOD"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <TextView
             android:textSize="20sp"
@@ -69,15 +85,15 @@
             android:text="Wybrana placówka: " />
 
         <Button
-            android:onClick="OnClickRealizuj"
             android:id="@+id/realizuj"
             android:layout_width="267dp"
             android:layout_height="60dp"
+            android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:layout_gravity="center"
             android:background="@drawable/custom_button"
+            android:onClick="OnClickRealizuj"
             android:text="Powrot do menu"
             android:textAllCaps="false"
             android:textColor="@color/common_google_signin_btn_text_dark_default"

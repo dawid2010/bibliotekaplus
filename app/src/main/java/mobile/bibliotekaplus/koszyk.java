@@ -77,8 +77,6 @@ public class koszyk extends AppCompatActivity {
                 .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(koszyk.this, R.drawable.default_icon))//设置StepsViewIndicator DefaultIcon
                 .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(koszyk.this, R.drawable.attention));//设置StepsViewIndicator AttentionIcon
 
-
-
         myListView= findViewById(R.id.myListView);
         final ProgressBar myProgressBar= findViewById(R.id.myProgressBar);
         SearchView mySearchView=findViewById(R.id.mySearchView);
@@ -103,213 +101,19 @@ public class koszyk extends AppCompatActivity {
                 return false;
             }
         });
-        spacecrafts=new koszyk.JSONDownloader(koszyk.this).retrieve(myListView,myProgressBar);
-        adapter=new koszyk.ListViewAdapter(this,spacecrafts);
+        spacecrafts=new FirebaseKoszykDonloader(koszyk.this).retrieve(myListView,myProgressBar);
+        adapter=new ListViewAdapterModelKosz(this,spacecrafts);
         myListView.setAdapter(adapter);
-
     }
 
-    public class Spacecraft {
-        /*
-        INSTANCE FIELDS
-         */
-        private String id;
-        private String name;
-        private String propellant;
-        private String imageURL;
-        private int technologyExists;
-        /*
-        GETTERS AND SETTERS
-         */
-        public String getId() {
-            return id;
-        }
-        public void setId(String id) {
-            this.id = id;
-        }
-        public String getName() {
-            return name;
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-        public String getPropellant() {
-            return propellant;
-        }
-        public void setPropellant(String propellant) {
-            this.propellant = propellant;
-        }
-        public String getImageURL() {
-            return imageURL;
-        }
-        public void setImageURL(String imageURL) {
-            this.imageURL = imageURL;
-        }
-        public int getTechnologyExists() {
-            return technologyExists;
-        }
-        public void setTechnologyExists(int technologyExists) {
-            this.technologyExists = technologyExists;
-        }
-        /*
-        TOSTRING
-         */
-        @Override
-        public String toString() {
-            return name;
-        }
-    }
-
-    class FilterHelper extends Filter {
-        ArrayList<koszyk.Spacecraft> currentList;
-        koszyk.ListViewAdapter adapter;
-        Context c;
-
-        public FilterHelper(ArrayList<koszyk.Spacecraft> currentList, koszyk.ListViewAdapter adapter, Context c) {
-            this.currentList = currentList;
-            this.adapter = adapter;
-            this.c=c;
-        }
-        /*
-        - Perform actual filtering.
-         */
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            FilterResults filterResults=new FilterResults();
-
-            if(constraint != null && constraint.length()>0)
-            {
-                //CHANGE TO UPPER
-                constraint=constraint.toString().toUpperCase();
-
-                //HOLD FILTERS WE FIND
-                ArrayList<koszyk.Spacecraft> foundFilters=new ArrayList<>();
-
-                koszyk.Spacecraft spacecraft=null;
-
-                //ITERATE CURRENT LIST
-                for (int i=0;i<currentList.size();i++)
-                {
-                    spacecraft= currentList.get(i);
-
-                    //SEARCH
-                    if(spacecraft.getName().toUpperCase().contains(constraint) )
-                    {
-                        //ADD IF FOUND
-                        foundFilters.add(spacecraft);
-                    }
-                }
-
-                //SET RESULTS TO FILTER LIST
-                filterResults.count=foundFilters.size();
-                filterResults.values=foundFilters;
-            }else
-            {
-                //NO ITEM FOUND.LIST REMAINS INTACT
-                filterResults.count=currentList.size();
-                filterResults.values=currentList;
-            }
-
-            //RETURN RESULTS
-            return filterResults;
-        }
-
-        @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            adapter.setSpacecrafts((ArrayList<koszyk.Spacecraft>) filterResults.values);
-            adapter.refresh();
-        }
-    }
 
     /*
     Our custom adapter class
      */
-    public class ListViewAdapter extends BaseAdapter implements Filterable {
-
-        Context c;
-        ArrayList<koszyk.Spacecraft> spacecrafts;
-        public ArrayList<koszyk.Spacecraft> currentList;
-        koszyk.FilterHelper filterHelper;
-
-        public ListViewAdapter(Context c, ArrayList<koszyk.Spacecraft> spacecrafts) {
-            this.c = c;
-            this.spacecrafts = spacecrafts;
-            this.currentList=spacecrafts;
-        }
-        @Override
-        public int getCount() {
-            return spacecrafts.size();
-        }
-        @Override
-        public Object getItem(int i) {
-            return spacecrafts.get(i);
-        }
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            if(view==null)
-            {
-                view= LayoutInflater.from(c).inflate(R.layout.model,viewGroup,false);
-            }
-
-            TextView txtName = view.findViewById(R.id.nameTextView);
-            TextView txtPropellant = view.findViewById(R.id.propellantTextView);
-            CheckBox chkTechExists = view.findViewById(R.id.myCheckBox);
-            ImageView spacecraftImageView = view.findViewById(R.id.spacecraftImageView);
-
-            final koszyk.Spacecraft s= (koszyk.Spacecraft) this.getItem(i);
-
-            txtName.setText(s.getName());
-            txtPropellant.setText(s.getPropellant());
-            //chkTechExists.setEnabled(true);
-            chkTechExists.setChecked( s.getTechnologyExists()==1);
-            chkTechExists.setEnabled(false);
-
-            if(s.getImageURL() != null && s.getImageURL().length()>0)
-            {
-                Picasso.get().load(s.getImageURL()).placeholder(R.drawable.placeholder).into(spacecraftImageView);
-            }else {
-
-                Picasso.get().load(R.drawable.placeholder).into(spacecraftImageView);
-            }
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    
-                    Toast.makeText(c, s.getName(), Toast.LENGTH_SHORT).show();
-                    openDialog(s.getId());
-                }
-            });
-
-            return view;
-        }
-
-        public void openDialog(String ksiazkaId) {
-            globalClass.setKsiazkaId(ksiazkaId);
-                DialogDelete exampleDialog = new DialogDelete();
-                exampleDialog.show(getSupportFragmentManager(),"example");
-        }
-
-        public void setSpacecrafts(ArrayList<koszyk.Spacecraft> filteredSpacecrafts)
-        {
-            this.spacecrafts=filteredSpacecrafts;
-
-        }
-        @Override
-        public Filter getFilter() {
-            if(filterHelper==null)
-            {
-                filterHelper=new koszyk.FilterHelper(currentList,this,c);
-            }
-
-            return filterHelper;
-        }
-        public void refresh(){
-            notifyDataSetChanged();
-        }
+    public void openDialog(String ksiazkaId) {
+        globalClass.setKsiazkaId(ksiazkaId);
+        DialogDelete exampleDialog = new DialogDelete();
+        exampleDialog.show(getSupportFragmentManager(),"example");
     }
 
     private String name;
@@ -319,75 +123,9 @@ public class koszyk extends AppCompatActivity {
     private Spacecraft s;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    public class JSONDownloader {
-
-        //SAVE/RETRIEVE URLS
-
-        //INSTANCE FIELDS
-        private final Context c;
-
-        public JSONDownloader(Context c) {
-            this.c = c;
-        }
-        /*
-        Fetch JSON Data
-         */
-        public ArrayList<koszyk.Spacecraft> retrieve(final ListView mListView, final ProgressBar myProgressBar)
-        {
-            final ArrayList<koszyk.Spacecraft> downloadedData=new ArrayList<>();
-            myProgressBar.setIndeterminate(true);
-            myProgressBar.setVisibility(View.VISIBLE);
-
-            db.collection("zamowienie")
-                    .get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                            if (task.isSuccessful()) {
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    DocumentReference uzytkownik = document.getDocumentReference("uzytkownik");
-                                    String idUser = uzytkownik.getId();
-                                    if (idUser.equals(globalClass.getUserId())){
-                                        DocumentReference ksiazka = document.getDocumentReference("ksiazka");
-                                        ksiazka.get().
-                                            addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<DocumentSnapshot> task3) {
-                                                    DocumentSnapshot daneUzytkownika = task3.getResult();
-                                                    name = daneUzytkownika.getString("tytul");
-                                                    propellant = "t";
-                                                    techExists = "t";
-                                                    imageURL = daneUzytkownika.getString("okladka");
-                                                    s = new koszyk.Spacecraft();
-                                                    s.setId(daneUzytkownika.getId());
-                                                    s.setName(name);
-                                                    s.setPropellant(propellant);
-                                                    s.setImageURL(imageURL);
-                                                    s.setTechnologyExists(techExists.equalsIgnoreCase("1") ? 1 : 0);
-                                                    downloadedData.add(s);
-
-                                                }
-                                            });
-                                }
-
-                                }
-                                myProgressBar.setVisibility(View.GONE);
-
-                            } else {
-                                String taskExc = task.getException()+"";
-                                Toast.makeText(koszyk.this,taskExc , Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-
-                    });
-            return downloadedData;
-        }
-    }
-    ArrayList<koszyk.Spacecraft> spacecrafts = new ArrayList<>();
+    ArrayList<Spacecraft> spacecrafts = new ArrayList<>();
     ListView myListView;
-    koszyk.ListViewAdapter adapter;
+    ListViewAdapterModelKosz adapter;
 
 
     public void OnClickRealizuj(View view) {
