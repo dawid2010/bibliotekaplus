@@ -226,16 +226,17 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 GeoPoint geoPoint = document.getGeoPoint("Geopoint");
+                                String id = document.getId();
                                 String nazwaOddzialu = document.getString("nazwaOddzialu");
                                 String adres = document.getString("Adres");
                                 LatLng latlngDoc = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
-                                mMap.addMarker(new MarkerOptions().position(latlngDoc).title(nazwaOddzialu).snippet(adres));
-                                Toast.makeText(koszykPlacowka.this, document.getId() + " => " + document.getData(), Toast.LENGTH_SHORT).show();
+                                mMap.addMarker(new MarkerOptions().position(latlngDoc).title(nazwaOddzialu+"\n"+"Adres: "+adres).snippet(id));
+                                //Toast.makeText(koszykPlacowka.this, document.getId() + " => " + document.getData(), Toast.LENGTH_SHORT).show();
 
                             }
                         } else {
                             String taskExc = task.getException()+"";
-                            Toast.makeText(koszykPlacowka.this,taskExc , Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(koszykPlacowka.this,taskExc , Toast.LENGTH_SHORT).show();
 
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
@@ -261,7 +262,8 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                     selectedMarkerName = marker.getTitle();
                     selectedMarkerUlica = marker.getSnippet();
                     selectedMarkerTextView.setText("Wybrana placówka: "+ selectedMarkerName);
-                    selectedMarkerAdres.setText("Adres:"+ selectedMarkerUlica);
+                    selectedMarkerAdres.setText("ID:"+ selectedMarkerUlica);
+                    globalClass.setPlacowka(selectedMarkerUlica);
                     marker.showInfoWindow();
                 }
                 else

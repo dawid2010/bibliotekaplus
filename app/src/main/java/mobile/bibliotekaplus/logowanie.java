@@ -21,6 +21,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class logowanie extends AppCompatActivity {
 
@@ -96,11 +98,15 @@ public class logowanie extends AppCompatActivity {
                                 ArrayList<String> uzytkownik = new ArrayList<>();
                                 String mailF = document.getString("mail");
                                 String hasloF = document.getString("haslo");
-                                Double wiek = document.getDouble("wiek");
+                                Date dataurodzenia = document.getDate("dataUrodzenia");
                                 uzytkownik.add(mailF);
                                 uzytkownik.add(hasloF);
                                 uzytkownik.add(document.getId());
-                                uzytkownik.add(wiek+"");
+                                Calendar cal = Calendar.getInstance();
+                                Date dzis = cal.getTime();
+                                long difference = Math.abs(dzis.getTime()-dataurodzenia.getTime());
+                                difference = difference/ (24 * 60 * 60 * 1000)/365;
+                                uzytkownik.add(difference+"");
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {

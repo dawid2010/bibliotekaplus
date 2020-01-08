@@ -206,14 +206,17 @@ public class Kaucja extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    DocumentReference uzytkownik = document.getDocumentReference("uzytkownik");
-                                    String idUser = uzytkownik.getId();
-                                    if (idUser.equals(globalClass.getUserId())){
+                                    Boolean decyzja = document.getBoolean("zrealizowany");
+                                    if(!decyzja) {
+                                        DocumentReference uzytkownik = document.getDocumentReference("uzytkownik");
+                                        String idUser = uzytkownik.getId();
+                                        if (idUser.equals(globalClass.getUserId())) {
                                         DocumentReference ksiazka = document.getDocumentReference("ksiazka");
                                         ksiazka.get().
                                                 addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<DocumentSnapshot> task3) {
+
                                                         DocumentSnapshot daneUzytkownika = task3.getResult();
                                                         name = daneUzytkownika.getString("tytul");
                                                         propellant = "t";
@@ -227,10 +230,13 @@ public class Kaucja extends AppCompatActivity {
                                                         s.setImageURL(imageURL);
                                                         s.setTechnologyExists(techExists.equalsIgnoreCase("1") ? 1 : 0);
                                                         s.setKaucja(kaucja);
-                                                        downloadedData.add(s);
+                                                        if(!findCustomerByid(s.getId(),downloadedData)) {
+                                                            downloadedData.add(s);
+                                                        }
                                                         //Toast.makeText(Kaucja.this,name , Toast.LENGTH_SHORT).show();
                                                     }
                                                 });
+                                    }
                                     }
 
                                 }
@@ -249,6 +255,15 @@ public class Kaucja extends AppCompatActivity {
 
             return downloadedData;
         }
+    }
+
+    private Boolean findCustomerByid(String id, ArrayList<Book> customers ){
+        for (Book customer : customers) {
+            if (customer.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void OnClickRealizuj(View view) {

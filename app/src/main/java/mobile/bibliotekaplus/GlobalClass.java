@@ -7,6 +7,15 @@ public class GlobalClass extends Application {
     private String ksiazkaId;
     private Double userWiek;
     private String zamowienieId;
+    private String placowka;
+
+    public String getPlacowka() {
+        return placowka;
+    }
+
+    public void setPlacowka(String placowka) {
+        this.placowka = placowka;
+    }
 
     public String getZamowienieId() {
         return zamowienieId;

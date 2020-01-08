@@ -20,9 +20,14 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class rejestracja extends AppCompatActivity {
@@ -114,14 +119,20 @@ public class rejestracja extends AppCompatActivity {
                 {
                     plec = "M";
                 }
-
+                Date date = null;
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYY", Locale.ENGLISH);
+                try {
+                    date = sdf.parse(data.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 Map<String, Object> user = new HashMap<>();
                 user.put("autor", "User");
                 user.put("mail", mail.getText().toString());
                 user.put("haslo", haslo.getText().toString());
                 user.put("rola", 2);
                 user.put("plec", plec.toString());
-                user.put("dataUrodzenia", data.toString());
+                user.put("dataUrodzenia",date);
 
                 if(rejestracjaPomyslna) {
                     db.collection("uzytkownicy").document(mail.getText().toString())

@@ -95,6 +95,7 @@ public class Realizacja extends AppCompatActivity {
                                 if(!decyzja) {
                                     DocumentReference zamowienie = db.collection("zamowienie").document(document.getId());
                                     DocumentReference uzytkownik = document.getDocumentReference("uzytkownik");
+                                    DocumentReference placowka = db.collection("placowki").document(globalClass.getPlacowka());
                                     String idUser = uzytkownik.getId();
                                     if (idUser.equals(globalClass.getUserId())) {
                                         zamowienie.
@@ -115,6 +116,14 @@ public class Realizacja extends AppCompatActivity {
                                                 });
                                         zamowienie.
                                                 update("zrealizowany",true)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+
+                                                    }
+                                                });
+                                        zamowienie.
+                                                update("placowka",placowka)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {

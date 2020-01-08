@@ -54,7 +54,6 @@ public class FirebaseKoszykDonloader {
                                 Boolean decyzja = document.getBoolean("zrealizowany");
                                 if(!decyzja) {
                                     DocumentReference uzytkownik = document.getDocumentReference("uzytkownik");
-
                                     String idUser = uzytkownik.getId();
                                     if (idUser.equals(globalClass.getUserId())) {
                                         DocumentReference ksiazka = document.getDocumentReference("ksiazka");
