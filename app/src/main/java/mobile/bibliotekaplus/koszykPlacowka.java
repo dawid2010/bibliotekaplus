@@ -168,6 +168,9 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                                 if(result[0] < najmniejszaOdleglosc)
                                 {
                                     Log.d("Odleglosc", "result: " + " => " + result[0] + " jest najmniejsza");
+                                    Log.d("Odleglosc", "nazwaOddzialu: " + " => " + nazwaOddzialu );
+                                    Log.d("Odleglosc", "adres: " + " => " + adres );
+                                    Log.d("Odleglosc", "id: " + " => " + id );
                                     najmniejszaOdleglosc = result[0];
                                     najblizszyOddzialName = nazwaOddzialu;
                                     najblizszyOddzialUlica = adres;
@@ -183,6 +186,7 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                                     marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
                                     selectedMarkerName = marker.getTitle();
                                     selectedMarkerUlica = marker.getSnippet();
+                                    globalClass.setPlacowka(selectedMarkerUlica);
                                     marker.showInfoWindow();
                                 }
                             }

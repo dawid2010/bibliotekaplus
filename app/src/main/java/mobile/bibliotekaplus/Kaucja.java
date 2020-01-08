@@ -1,5 +1,6 @@
 package mobile.bibliotekaplus;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +38,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmation;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -43,6 +50,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,6 +62,16 @@ public class Kaucja extends AppCompatActivity {
     private GlobalClass globalClass;
     String placowka;
     String selectedMarkerUlica;
+
+    private String paymentAmount;
+
+    public static final int PAYPAL_REQUEST_CODE = 123;
+
+    private static PayPalConfiguration config = new PayPalConfiguration()
+            .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
+            .clientId(PayPalConfig.PAYPAL_CLIENT_ID);
+
+    ArrayList<Book> books;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +103,7 @@ public class Kaucja extends AppCompatActivity {
         SearchView mySearchView=findViewById(R.id.mySearchView);
 
         ListView myListView = findViewById(R.id.myListView);
-        final ArrayList<Book> books = new JSONDownloader(Kaucja.this).retrieve(myListView,myProgressBar);
-
+        books = new JSONDownloader(Kaucja.this).retrieve(myListView,myProgressBar);
 
 
         Handler handler = new Handler();
@@ -105,14 +122,21 @@ public class Kaucja extends AppCompatActivity {
         }, 2000);
 
 
-        Intent intent = getIntent();
-        placowka = intent.getExtras().getString("placowka");
-        selectedMarkerUlica = intent.getExtras().getString("adres");
+        Intent intentFromPreviousStep = getIntent();
+        placowka = intentFromPreviousStep.getExtras().getString("placowka");
+        selectedMarkerUlica = intentFromPreviousStep.getExtras().getString("adres");
 
 
+        Intent intent = new Intent(this, PayPalService.class);
+
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+
+        startService(intent);
     }
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
 
     public class Book {
         /*
@@ -270,7 +294,77 @@ public class Kaucja extends AppCompatActivity {
         Intent intent = new Intent(this, Realizacja.class);
         intent.putExtra("placowka", placowka);
         intent.putExtra("adres", selectedMarkerUlica);
+        intent.putExtra("oplacono", false);
         this.startActivity ( intent );
     }
+    public void OnClickPaypal(View view) {
+        paymentAmount = "10";
+        double tempIntAmount = 0;
+        for (Book book : books) {
+            tempIntAmount+=book.getKaucja();
+            Log.d("platnosci","kwota:"+book.getKaucja());
+        }
+        paymentAmount = String.valueOf(tempIntAmount);
+        Log.d("platnosciFinal","kwota:"+paymentAmount);
+        getPayment();
+    }
+    private void getPayment() {
+        //Getting the amount from editText
+
+        //Creating a paypalpayment
+        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(paymentAmount)), "USD", "Simplified Coding Fee",
+                PayPalPayment.PAYMENT_INTENT_SALE);
+
+        //Creating Paypal Payment activity intent
+        Intent intent = new Intent(this, PaymentActivity.class);
+
+        //putting the paypal configuration to the intent
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+
+        //Puting paypal payment to the intent
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+
+        //Starting the intent activity for result
+        //the request code will be used on the method onActivityResult
+        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //If the result is from paypal
+        if (requestCode == PAYPAL_REQUEST_CODE) {
+
+            //If the result is OK i.e. user has not canceled the payment
+            if (resultCode == Activity.RESULT_OK) {
+                //Getting the payment confirmation
+                PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+
+                //if confirmation is not null
+                if (confirm != null) {
+                    try {
+                        //Getting the payment details
+                        String paymentDetails = confirm.toJSONObject().toString(4);
+                        Log.i("paymentExample", paymentDetails);
+
+                        //Starting a new activity for the payment details and also putting the payment details with intent
+                        startActivity(new Intent(this, Realizacja.class)
+                                //.putExtra("PaymentDetails", paymentDetails)
+                                //.putExtra("PaymentAmount", paymentAmount)
+                                .putExtra("oplacono", true)
+                                .putExtra("placowka", placowka)
+                                .putExtra("adres", selectedMarkerUlica));
+
+                    } catch (JSONException e) {
+                        Log.e("paymentExample", "an extremely unlikely failure occurred: ", e);
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.i("paymentExample", "The user canceled.");
+            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+                Log.i("paymentExample", "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
+            }
+        }
+    }
+
 
 }

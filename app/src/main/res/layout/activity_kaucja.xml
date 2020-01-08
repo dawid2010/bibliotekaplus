@@ -77,6 +77,40 @@
             android:layout_width="1dp"
             android:layout_height="1dp" />
 
+        <Button
+            android:onClick="OnClickPaypal"
+            android:id="@+id/btnPaypal"
+            android:layout_width="267dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_button"
+            android:text="Zapłać teraz przez PayPal"
+            android:textAllCaps="false"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.542"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/albo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginEnd="8dp"
+            android:text="Albo"
+            android:textIsSelectable="false"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:fontFamily="sans-serif" />
 
         <Button
             android:onClick="OnClickRealizuj"
@@ -88,7 +122,7 @@
             android:layout_marginBottom="8dp"
             android:layout_gravity="center"
             android:background="@drawable/custom_button"
-            android:text="Dalej"
+            android:text="Zapłać na miejscu"
             android:textAllCaps="false"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="20sp"

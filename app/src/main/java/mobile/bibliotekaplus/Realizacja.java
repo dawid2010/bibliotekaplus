@@ -74,7 +74,17 @@ public class Realizacja extends AppCompatActivity {
         String placowka = intent.getExtras().getString("placowka");
         wybranaPlacowka.setText("Wybrana placówka: "+placowka);
         String adres = intent.getExtras().getString("adres");
-        wybranaPlacowkaAdres.setText("Adres: "+adres);
+        wybranaPlacowkaAdres.setText("");
+        Boolean oplacono = intent.getExtras().getBoolean("oplacono");
+        if(oplacono)
+        {
+            wybranaPlacowkaAdres.setText("Zamówienie zostało opłacone");
+        }
+        else
+        {
+            wybranaPlacowkaAdres.setText("Płatność za zamówienie na miejscu");
+        }
+        //wybranaPlacowkaAdres.setText("Adres: "+adres);
         kodS = kod.getText().toString();
         dataDzis = Calendar.getInstance().getTime();
         updateZamowienie();
