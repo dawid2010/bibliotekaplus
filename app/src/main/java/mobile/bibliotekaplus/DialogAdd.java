@@ -39,6 +39,7 @@ public class DialogAdd extends AppCompatDialogFragment {
                         user.put("uzytkownik", uzytkownik);
                         user.put("zrealizowany",realizacja);
                         user.put("wiekU",globalClass.getUserWiek());
+                        user.put("plecU",globalClass.getPlec());
                         TextView editTextMail;
                         db.collection("zamowienie")
                                 .add(user)

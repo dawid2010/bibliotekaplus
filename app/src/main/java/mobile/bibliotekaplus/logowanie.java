@@ -99,6 +99,7 @@ public class logowanie extends AppCompatActivity {
                                 String mailF = document.getString("mail");
                                 String hasloF = document.getString("haslo");
                                 Date dataurodzenia = document.getDate("dataUrodzenia");
+                                String plec = document.getString("plec");
                                 uzytkownik.add(mailF);
                                 uzytkownik.add(hasloF);
                                 uzytkownik.add(document.getId());
@@ -107,6 +108,7 @@ public class logowanie extends AppCompatActivity {
                                 long difference = Math.abs(dzis.getTime()-dataurodzenia.getTime());
                                 difference = difference/ (24 * 60 * 60 * 1000)/365;
                                 uzytkownik.add(difference+"");
+                                uzytkownik.add(plec);
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {
@@ -132,6 +134,7 @@ public class logowanie extends AppCompatActivity {
                     autoryzacja=true;
                     globalClass.setUserId(u.get(2));
                     globalClass.setUserWiek(Double.parseDouble(u.get(3)));
+                    globalClass.setPlec(u.get(4));
                 }
                 else{
                     Toast.makeText(this,"Błędne hasło",Toast.LENGTH_SHORT).show();

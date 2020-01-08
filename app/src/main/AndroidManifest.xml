@@ -47,6 +47,10 @@
         <activity android:name=".kody" />
         <activity android:name=".ustawienia" />
         <activity android:name=".kody_szcz" />
+        <activity android:name=".kodyszukaj" />
+        <activity android:name=".addbook" />
+        <activity android:name=".ranking" />
+        <activity android:name=".ranking_gen" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCUI864TMgeS2gWTf2u6TITPPDuQms4TjA" />

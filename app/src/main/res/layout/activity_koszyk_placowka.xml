@@ -87,7 +87,7 @@
 
         <Button
             android:onClick="OnClickRealizuj"
-            android:id="@+id/realizuj"
+            android:id="@+id/btnranking"
             android:layout_width="267dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"

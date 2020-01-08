@@ -56,11 +56,21 @@ public class FirebasePropDownload {private FirebaseFirestore db = FirebaseFirest
                                 Boolean WiekDecyzja=false;
                                 if(decyzja) {
                                 Double wiek = document.getDouble("wiekU");
+                                String pleck=document.getString("plecU");
                                 Double wiek2 = globalClass.getUserWiek();
-                                if (wiek.doubleValue() == wiek2.doubleValue()) {
-                                    WiekDecyzja = true;
-                                } else {
-                                    WiekDecyzja = false;
+                                try {
+                                    if (wiek.doubleValue() - 4 <= wiek2.doubleValue() && wiek.doubleValue() + 4 >= wiek2.doubleValue()) {
+                                        if (pleck.equals(globalClass.getPlec())) {
+                                            WiekDecyzja = true;
+                                        } else {
+                                            WiekDecyzja = false;
+                                        }
+                                    } else {
+                                        WiekDecyzja = false;
+                                    }
+                                }
+                                catch (java.lang.NullPointerException e){
+
                                 }
 
 
@@ -68,13 +78,14 @@ public class FirebasePropDownload {private FirebaseFirestore db = FirebaseFirest
 
                                     DocumentReference uzytkownik = document.getDocumentReference("uzytkownik");
                                     DocumentReference ksiazka = document.getDocumentReference("ksiazka");
-                                    ksiazka.get().
+                                    if(!uzytkownik.getId().equals(globalClass.getUserId())) {
+                                        ksiazka.get().
                                                 addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<DocumentSnapshot> task3) {
                                                         DocumentSnapshot daneUzytkownika = task3.getResult();
                                                         String id = daneUzytkownika.getId();
-                                                        if(!findCustomerByid(id,downloadedData)){
+                                                        if (!findCustomerByid(id, downloadedData)) {
                                                             String name = daneUzytkownika.getString("tytul");
                                                             String propellant = daneUzytkownika.getString("autor");
                                                             String epoka = daneUzytkownika.getString("epoka");
@@ -97,7 +108,7 @@ public class FirebasePropDownload {private FirebaseFirestore db = FirebaseFirest
                                                         }
                                                     }
                                                 });
-
+                                    }
                                 }
                                 }
                             }

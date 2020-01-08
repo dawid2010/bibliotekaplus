@@ -48,7 +48,6 @@ public class menu_glowne extends AppCompatActivity {
     ListView myListView;
     private GlobalClass globalClass;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +55,6 @@ public class menu_glowne extends AppCompatActivity {
         globalClass =(GlobalClass) getApplicationContext();
         myProgressBar= findViewById(R.id.myProgressBarGlowna);
         spacecrafts=new JSONDownloader(menu_glowne.this).retrieve(myListView,myProgressBar);
-
         if (isServicesOK()) {
             init();
             initSzukaj();
@@ -65,6 +63,9 @@ public class menu_glowne extends AppCompatActivity {
             initNowosci();
             initUstawienia();
             initKody();
+            initSzukajKody();
+            initDodajBook();
+            initRanking();
             al = new ArrayList<>();
             Spacecraft sp = new Spacecraft();
             sp.setName("Przesuwaj w prawo, aby dodawać do koszyka");
@@ -111,6 +112,7 @@ public class menu_glowne extends AppCompatActivity {
                         user.put("uzytkownik", uzytkownik);
                         user.put("zrealizowany",realizacja);
                         user.put("wiekU",globalClass.getUserWiek());
+                        user.put("plecU",globalClass.getPlec());
                         // Add a nnew document with a generated ID
                         TextView editTextMail;
                         editTextMail = (TextView) findViewById(R.id.profile_email);
@@ -161,6 +163,39 @@ public class menu_glowne extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private void initRanking() {
+        Button btnMap = (Button) findViewById(R.id.ranking);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(menu_glowne.this, ranking.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initDodajBook() {
+        Button btnMap = (Button) findViewById(R.id.btnaddbook);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(menu_glowne.this, addbook.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initSzukajKody() {
+        Button btnMap = (Button) findViewById(R.id.btnranking);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(menu_glowne.this, kodyszukaj.class);
+                startActivity(intent);
+            }
+        });
     }
 
     static void makeToast(Context ctx, String s){

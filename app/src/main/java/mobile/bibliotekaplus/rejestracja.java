@@ -20,10 +20,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -64,8 +62,15 @@ public class rejestracja extends AppCompatActivity {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                String date;
                 month = month + 1;
-                String date = month + "/" + day + "/" + year;
+
+                if(month<10){
+                    date= day  + "-0" + month + "-" + year;
+                }
+                else{
+                    date = day  + "-" + month + "-" + year;
+                }
                 mDisplayDate.setText(date);
             }
         };
@@ -74,7 +79,7 @@ public class rejestracja extends AppCompatActivity {
     }
 
     private void initRejestracja() {
-        Button btnMap = (Button) findViewById(R.id.btnrejestracjaK);
+        Button btnMap = (Button) findViewById(R.id.btnDodaj);
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -120,7 +125,7 @@ public class rejestracja extends AppCompatActivity {
                     plec = "M";
                 }
                 Date date = null;
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYY", Locale.ENGLISH);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                 try {
                     date = sdf.parse(data.getText().toString());
                 } catch (ParseException e) {

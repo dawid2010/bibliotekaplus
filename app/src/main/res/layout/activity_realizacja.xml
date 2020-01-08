@@ -93,7 +93,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/realizuj"
+            android:id="@+id/btnranking"
             android:layout_width="267dp"
             android:layout_height="60dp"
             android:layout_gravity="center"

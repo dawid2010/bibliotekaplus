@@ -50,6 +50,7 @@ public class FirebaseKodySzczDonloader  {
 
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
+
                                if( globalClass.getZamowienieId().equals(document.getString("kod"))) {
                                    Boolean decyzja = document.getBoolean("zrealizowany");
                                    if (decyzja) {

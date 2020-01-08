@@ -13,8 +13,16 @@ public class Spacecraft {
     private String imageURL;
     private Double kaucja;
     private int technologyExists;
-
+    private int liczba;
     /*GETTERS AND SETTERS  */
+
+    public int getLiczba() {
+        return liczba;
+    }
+
+    public void setLiczba(int liczba) {
+        this.liczba = liczba;
+    }
 
     public Double getKaucja() {
         return kaucja;
