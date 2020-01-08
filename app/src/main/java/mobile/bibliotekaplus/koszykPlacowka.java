@@ -63,6 +63,8 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
 
     Button realizujButton;
 
+    ArrayList<Marker> markers = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +105,7 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
         realizujButton = findViewById(R.id.btnranking);
 
 
+
     }
     private void getDeviceLocation() {
         Log.d(TAG, "getDeviceLocation: getting the currentlocation");
@@ -117,6 +120,8 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                             Log.d(TAG, "found location");
                             Location currentLocation = (Location) task.getResult();
                             moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), 7f);
+
+                            findClosestMarker(currentLocation);
                         } else {
                             Log.d(TAG, "null");
                             Toast.makeText(koszykPlacowka.this, "Nie odnaleziono lokalizacji", Toast.LENGTH_SHORT).show();
@@ -127,6 +132,71 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
         } catch (SecurityException e) {
             Log.e(TAG, "getDeviceLocation: errors:" + e.getMessage());
         }
+    }
+
+    private void findClosestMarker(Location currentLocation) {
+        final double currentUserLatitude = currentLocation.getLatitude();
+        final double currentUserLongitude = currentLocation.getLongitude();
+
+
+        db.collection("placowki")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            double najmniejszaOdleglosc = Double.MAX_VALUE;
+                            String najblizszyOddzialName = "";
+                            String najblizszyOddzialUlica = "";
+                            String najblizszyOddzialId = "";
+
+
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                GeoPoint geoPoint = document.getGeoPoint("Geopoint");
+                                String id = document.getId();
+                                String nazwaOddzialu = document.getString("nazwaOddzialu");
+                                String adres = document.getString("Adres");
+                                LatLng latlngDoc = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
+
+
+                                //mMap.addMarker(new MarkerOptions().position(latlngDoc).title(nazwaOddzialu+"\n"+"Adres: "+adres).snippet(id));
+                                //Toast.makeText(koszykPlacowka.this, document.getId() + " => " + document.getData(), Toast.LENGTH_SHORT).show();
+
+                                float[] result = new float[1];
+                                Location.distanceBetween(currentUserLatitude, currentUserLongitude, geoPoint.getLatitude(), geoPoint.getLongitude(), result);
+                                Log.d("Odleglosc", "result: " + " => " + result[0]);
+                                if(result[0] < najmniejszaOdleglosc)
+                                {
+                                    Log.d("Odleglosc", "result: " + " => " + result[0] + " jest najmniejsza");
+                                    najmniejszaOdleglosc = result[0];
+                                    najblizszyOddzialName = nazwaOddzialu;
+                                    najblizszyOddzialUlica = adres;
+                                    najblizszyOddzialId = id;
+                                }
+                            }
+
+                            selectedMarkerTextView.setText("Najbliższa placówka: "+ najblizszyOddzialName +"\n"+"Adres: "+ najblizszyOddzialUlica);
+//
+                            for (Marker marker : markers) {
+                                if(marker.getSnippet().equals(najblizszyOddzialId))
+                                {
+                                    marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+                                    selectedMarkerName = marker.getTitle();
+                                    selectedMarkerUlica = marker.getSnippet();
+                                    marker.showInfoWindow();
+                                }
+                            }
+
+                        } else {
+                            String taskExc = task.getException()+"";
+                            //Toast.makeText(koszykPlacowka.this,taskExc , Toast.LENGTH_SHORT).show();
+
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+
     }
 
     private void moveCamera(LatLng latLng, float zoom) {
@@ -205,9 +275,9 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                                 String nazwaOddzialu = document.getString("nazwaOddzialu");
                                 String adres = document.getString("Adres");
                                 LatLng latlngDoc = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
-                                mMap.addMarker(new MarkerOptions().position(latlngDoc).title(nazwaOddzialu+"\n"+"Adres: "+adres).snippet(id));
+                                Marker markerName = mMap.addMarker(new MarkerOptions().position(latlngDoc).title(nazwaOddzialu+"\n"+"Adres: "+adres).snippet(id));
                                 //Toast.makeText(koszykPlacowka.this, document.getId() + " => " + document.getData(), Toast.LENGTH_SHORT).show();
-
+                                markers.add(markerName);
                             }
                         } else {
                             String taskExc = task.getException()+"";
@@ -237,7 +307,7 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                     selectedMarkerName = marker.getTitle();
                     selectedMarkerUlica = marker.getSnippet();
                     selectedMarkerTextView.setText("Wybrana placówka: "+ selectedMarkerName);
-                    selectedMarkerAdres.setText("ID:"+ selectedMarkerUlica);
+                    //selectedMarkerAdres.setText("ID:"+ selectedMarkerUlica);
                     globalClass.setPlacowka(selectedMarkerUlica);
                     marker.showInfoWindow();
                 }
