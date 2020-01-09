@@ -52,6 +52,7 @@ public class logowanie_fb  extends AppCompatActivity {
     private GlobalClass globalClass;
     private CallbackManager callbackManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         globalClass =(GlobalClass) getApplicationContext();
@@ -73,7 +74,8 @@ public class logowanie_fb  extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult)
             {
                 Toast.makeText(logowanie_fb.this,"Logowanie nastąpiło pomyślne",Toast.LENGTH_LONG).show();
-
+                Intent intent = new Intent(logowanie_fb.this, menu_glowne.class);
+                startActivity(intent);
             }
 
             @Override
@@ -86,6 +88,7 @@ public class logowanie_fb  extends AppCompatActivity {
                 Toast.makeText(logowanie_fb.this,"Błąd",Toast.LENGTH_LONG).show();
             }
         });
+
         klikDalej();
     }
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -212,26 +215,36 @@ public class logowanie_fb  extends AppCompatActivity {
     }
 
     private boolean validateUser(){
+        /*
+
+        Boolean autoryzacja = false;
+        String dataurodzenia = globalClass.getUrodzinyFb();
+
+        }*/
         TextView editTextMail;
         editTextMail =(TextView) findViewById(R.id.profile_email);
         String mail = editTextMail.getText().toString().trim();
-        Boolean autoryzacja = false;
-        String dataurodzenia = globalClass.getUrodzinyFb();
-        for(ArrayList<String> u:uzytkownicy){
-            if(u.get(0).equals(mail)){
-                    autoryzacja=true;
+        Boolean autoryzacja = true;
+        if(AccessToken.getCurrentAccessToken()!=null) {
+            autoryzacja = true;
+            for (ArrayList<String> u : uzytkownicy) {
+                if (u.get(0).equals(mail)) {
+                    autoryzacja = true;
                     globalClass.setUserId(u.get(2));
                     globalClass.setUserWiek(Double.parseDouble(u.get(3)));
                     globalClass.setPlec(u.get(4));
-            }
-            else{
-                if(mail.equals("")){
-                    Toast.makeText(this,"Brak użytkownika, zarejestruj się lub zaloguj się przez social media",Toast.LENGTH_SHORT).show();
+                } else {
+                    if (mail.equals("")) {
+                        Toast.makeText(this, "Brak użytkownika, zarejestruj się lub zaloguj się przez social media", Toast.LENGTH_SHORT).show();
+                    } else {
+                        addUser(mail, "M", "");
+                        break;
+                    }
                 }
-                else{
-                    addUser(mail,"M",dataurodzenia);
-                }
             }
+        }
+        else{
+            autoryzacja=false;
         }
         return autoryzacja;
     }
@@ -242,24 +255,7 @@ public class logowanie_fb  extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    AccessTokenTracker tokenTracker = new AccessTokenTracker() {
 
-        @Override
-        protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken)
-        {
-            if(currentAccessToken==null)
-            {
-                txtName.setText("");
-                txtEmail.setText("");
-                circleImageView.setImageResource(0);
-                Toast.makeText(logowanie_fb.this,"User Logged out",Toast.LENGTH_LONG).show();
-            }
-            else {
-                loadUser();
-                loadUserProfile(currentAccessToken);
-            }
-        }
-    };
 
     private void loadUserProfile(AccessToken newAccessToken)
     {
@@ -267,26 +263,29 @@ public class logowanie_fb  extends AppCompatActivity {
             @Override
             public void onCompleted(JSONObject object, GraphResponse response)
             {
+                String first_name = "";
+                String last_name ="";
+                String email  ="";
+                String dataurodzenia  ="";
+                String id  ="1";
+                String image_url  = "https://graph.facebook.com/"+id+ "/picture?type=normal";
                 try {
-                    String first_name = object.getString("first_name");
-                    String last_name = object.getString("last_name");
-                    String email = object.getString("email");
-                    String dataurodzenia = object.getString("birthday");
-                    String id = object.getString("id");
-                    String image_url = "https://graph.facebook.com/"+id+ "/picture?type=normal";
-
-                    txtEmail.setText(email);
-                    txtName.setText(first_name +" "+last_name);
-                    globalClass.setUrodzinyFb(dataurodzenia);
-                    RequestOptions requestOptions = new RequestOptions();
-                    requestOptions.dontAnimate();
-                    Glide.with(logowanie_fb.this).load(image_url).into(circleImageView);
-
+                     first_name = object.getString("first_name");
+                     last_name = object.getString("last_name");
+                     email = object.getString("email");
+                     id = object.getString("id");
+                     image_url = "https://graph.facebook.com/"+id+ "/picture?type=normal";
 
 
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    //Toast.makeText(logowanie_fb.this,"Bład: "+e.toString(),Toast.LENGTH_LONG).show();
                 }
+                txtEmail.setText(email);
+                txtName.setText(first_name +" "+last_name);
+                globalClass.setUrodzinyFb(dataurodzenia);
+                RequestOptions requestOptions = new RequestOptions();
+                requestOptions.dontAnimate();
+                Glide.with(logowanie_fb.this).load(image_url).into(circleImageView);
 
             }
         });
@@ -304,6 +303,7 @@ public class logowanie_fb  extends AppCompatActivity {
         {
             loadUserProfile(AccessToken.getCurrentAccessToken());
             Toast.makeText(logowanie_fb.this,"Jesteś już zalogowany",Toast.LENGTH_LONG).show();
+
         }
     }
 
