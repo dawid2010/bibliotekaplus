@@ -2,6 +2,7 @@ package mobile.bibliotekaplus;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -63,9 +64,16 @@ public class ranking_gen extends AppCompatActivity {
         spacecrafts=new FirebaseRankDownload(this).retrieve(myListView,myProgressBar);
         Collections.shuffle(spacecrafts);
         adapter=new ListViewAdapterModelRank(this,spacecrafts);
-        myListView.setAdapter(adapter);
-
+        //myListView.setAdapter(adapter);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                myListView.setAdapter(adapter);
+            }
+        }, 1000);
     }
+
 
     public void openDialog(String ksiazkaId) {
         globalClass.setKsiazkaId(ksiazkaId);

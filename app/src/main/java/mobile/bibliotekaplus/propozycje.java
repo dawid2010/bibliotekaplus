@@ -2,6 +2,7 @@ package mobile.bibliotekaplus;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -44,7 +45,6 @@ import java.util.Map;
 public class propozycje extends AppCompatActivity {
     private GlobalClass globalClass;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +77,15 @@ public class propozycje extends AppCompatActivity {
         spacecrafts=new FirebasePropDownload(propozycje.this).retrieve(myListView,myProgressBar);
         Collections.shuffle(spacecrafts);
         adapter=new ListViewAdapterModel(this,spacecrafts);
-        myListView.setAdapter(adapter);
+       // myListView.setAdapter(adapter);
 
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                myListView.setAdapter(adapter);
+            }
+        }, 1000);
     }
 
     public void openDialog(String ksiazkaId) {
