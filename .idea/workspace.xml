@@ -15,20 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d2e3d42-77f9-4eb1-91a5-f8fafc585585" name="Default" comment="Poprawienie daty podczas rejstraci, dodanie placówek do zrealizowanych zamówień, obliczanie wieku przez różnice dziejszej daty i daty urodzenia">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FilterHelperModelRank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseRankDownload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ListViewAdapterModelRank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/addbook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kodyszukaj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking_gen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/addbook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ranking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/szukajkodu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_book.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_kody_szukaj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/model_ranking.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_paypal_sdk_paypal_android_sdk_2_14_6_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_card_android_sdk_5_4_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -36,24 +24,20 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/DialogAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/DialogAdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodySzczDonloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodySzczDonloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebasePropDownload.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebasePropDownload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodyDonwload.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodyDonwload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseRankDownload.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseRankDownload.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/GlobalClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/GlobalClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Spacecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Spacecraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/koszykPlacowka.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/koszykPlacowka.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/menu_glowne.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/menu_glowne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/rejestracja.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/rejestracja.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_kaucja.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_kaucja.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_koszyk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_koszyk.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_koszyk_placowka.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_koszyk_placowka.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu_glowne.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu_glowne.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_realizacja.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_realizacja.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_rejrestracja.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rejrestracja.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_ustawienia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_ustawienia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Kaucja.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Kaucja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Realizacja.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Realizacja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Zamowienia.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Zamowienia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/model_zamowienie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/model_zamowienie.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,38 +75,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/rejestracja.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseRankDownload.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+            <state relative-caret-position="590">
+              <caret line="138" column="50" selection-start-line="138" selection-start-column="50" selection-end-line="138" selection-end-column="50" />
               <folding>
-                <element signature="e#2211#2742#0" expanded="true" />
-                <element signature="e#2741#2742#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#8047#8215#0" expanded="true" />
+                <element signature="e#8214#8215#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ListViewAdapterModelRank.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking_gen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="739">
-              <caret line="62" column="45" lean-forward="true" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="170">
+              <caret line="167" column="22" selection-start-line="167" selection-start-column="22" selection-end-line="167" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -130,72 +100,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/GlobalClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+            <state relative-caret-position="238">
+              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#513#514#0" expanded="true" />
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
                 <element signature="e#452#453#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#542#543#0" expanded="true" />
-                <element signature="e#574#575#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#483#484#0" expanded="true" />
+                <element signature="e#532#533#0" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
                 <element signature="e#686#687#0" expanded="true" />
-                <element signature="e#339#340#0" expanded="true" />
-                <element signature="e#366#367#0" expanded="true" />
-                <element signature="e#406#407#0" expanded="true" />
-                <element signature="e#438#439#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseRankDownload.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1454#7725#0" expanded="true" />
-                <element signature="e#2526#7407#0" expanded="true" />
-                <element signature="e#7406#7407#0" expanded="true" />
-                <element signature="e#7724#7725#0" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKoszykDonloader.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="65" column="56" lean-forward="true" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="98" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebasePropDownload.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="129" column="5" lean-forward="true" selection-start-line="122" selection-start-column="4" selection-end-line="129" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="120" selection-start-line="120" selection-end-line="120" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2048#2547#0" expanded="true" />
-                <element signature="e#2546#2547#0" expanded="true" />
-                <element signature="e#3978#5136#0" expanded="true" />
-                <element signature="e#5135#5136#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="405">
+              <caret line="111" column="60" lean-forward="true" selection-start-line="98" selection-start-column="32" selection-end-line="111" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -203,7 +130,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/model_ranking.xml">
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="799">
+            <state relative-caret-position="833">
               <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
             </state>
           </provider>
@@ -214,10 +141,48 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml">
           <provider editor-type-id="text-editor">
             <state relative-caret-position="986">
-              <caret line="58" column="11" lean-forward="true" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
+              <caret line="58" column="11" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_szukaj.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/szukaj.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="51" column="25" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="class#JSONDownloader3#0;class#szukaj#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodySzczDonloader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_realizacja.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="113" selection-start-line="113" selection-end-line="115" selection-end-column="15" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -272,7 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/model.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ListViewAdapterModelKoszyk.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FilterHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FilterHelperModelKosz.java" />
@@ -287,17 +251,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ustawienia.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_kody.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/szukaj.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Zamowienia.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_kody_szcz.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody_szcz.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodyDonwload.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ListViewAdapterModelKosz.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_logowanie.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_rejrestracja.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Kaucja.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/koszykPlacowka.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Realizacja.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebasePropDownload.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/DialogAdd.java" />
@@ -309,7 +268,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/addbook.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_book.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/activity_ranking.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/model_zamowienie.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Spacecraft_rank.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Spacecraft.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FilterHelperModelRank.java" />
@@ -317,20 +275,27 @@
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking_gen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ListViewAdapterModelRank.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/model_ranking.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/GlobalClass.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKoszykDonloader.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/rejestracja.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/model_zamowienie.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Kaucja.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Realizacja.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Zamowienia.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodyDonwload.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseRankDownload.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/GlobalClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1937" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -338,7 +303,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="biliotekaplusrepo" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -441,18 +417,44 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
+      <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
-              <item name="biliotekaplusrepo" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="bibliotekaplus" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="bibliotekaplus" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
+            </path>
+            <path>
+              <item name="bibliotekaplus" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="bibliotekaplus" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="bibliotekaplus" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bibliotekaplus" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="bibliotekaplus" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -715,10 +717,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49750414" weight="0.17270789" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49750414" visible="true" weight="0.28322148" />
       <window_info id="Structure" order="1" sideWeight="0.5024958" side_tool="true" weight="0.14765458" />
       <window_info id="Captures" order="2" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="3" />
@@ -729,15 +731,15 @@
       <window_info id="Resources Explorer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4978678" weight="0.32960895" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84381664" weight="0.30985916" />
-      <window_info active="true" anchor="bottom" x="22" y="341" width="1876" height="357" id="Debug" order="3" sideWeight="0.8395522" visible="true" weight="0.38678223" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84381664" weight="0.30878186" />
+      <window_info anchor="bottom" x="22" y="341" width="1876" height="357" id="Debug" order="3" sideWeight="0.8395522" weight="0.38678223" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32960895" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4946695" weight="0.32827735" />
       <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.16044776" side_tool="true" weight="0.38678223" />
-      <window_info anchor="bottom" id="Build" order="10" sideWeight="0.48081023" weight="0.20151679" />
+      <window_info anchor="bottom" id="Build" order="10" sideWeight="0.48081023" weight="0.39518413" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4978678" weight="0.32849163" />
       <window_info anchor="bottom" id="Android Profiler" order="12" sideWeight="0.49946696" weight="0.32960895" />
       <window_info anchor="bottom" id="Logcat" order="13" sideWeight="0.67803836" weight="0.32960895" />
@@ -750,7 +752,7 @@
       <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" />
       <window_info anchor="right" id="Assistant" order="7" weight="0.28997868" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Preview" order="9" weight="0.32995737" />
+      <window_info anchor="right" id="Preview" order="9" weight="0.3295302" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49750414" visible="true" weight="0.17270789" />
@@ -811,283 +813,277 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>187</line>
+          <line>201</line>
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>188</line>
+          <line>202</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>192</line>
+          <line>206</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>193</line>
+          <line>207</line>
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>200</line>
+          <line>214</line>
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>202</line>
+          <line>216</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>203</line>
+          <line>217</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>201</line>
+          <line>215</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>205</line>
+          <line>220</line>
           <properties />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>206</line>
+          <line>221</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>204</line>
+          <line>219</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>160</line>
+          <line>174</line>
           <properties />
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>169</line>
+          <line>183</line>
           <properties />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>176</line>
+          <line>190</line>
           <properties />
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>182</line>
+          <line>196</line>
           <properties />
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>181</line>
+          <line>195</line>
           <properties />
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>97</line>
+          <line>100</line>
           <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>101</line>
+          <line>104</line>
           <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>98</line>
+          <line>101</line>
           <properties />
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>100</line>
+          <line>103</line>
           <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>99</line>
+          <line>102</line>
           <properties />
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>89</line>
+          <line>92</line>
           <properties />
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>152</line>
+          <line>164</line>
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>119</line>
+          <line>122</line>
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>121</line>
+          <line>124</line>
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>120</line>
+          <line>123</line>
           <properties />
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>123</line>
+          <line>135</line>
           <properties />
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>124</line>
+          <line>136</line>
           <properties />
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>122</line>
-          <properties />
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>127</line>
+          <line>139</line>
           <properties />
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>128</line>
+          <line>140</line>
           <properties />
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>133</line>
+          <line>145</line>
           <properties />
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>134</line>
+          <line>146</line>
           <properties />
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>136</line>
+          <line>148</line>
           <properties />
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>135</line>
+          <line>147</line>
           <properties />
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>138</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>137</line>
+          <line>149</line>
           <properties />
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>141</line>
+          <line>153</line>
           <properties />
           <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>65</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>64</line>
+          <line>67</line>
           <properties />
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>63</line>
+          <line>66</line>
           <properties />
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>60</line>
+          <line>63</line>
           <properties />
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>58</line>
+          <line>61</line>
           <properties />
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>56</line>
+          <line>59</line>
           <properties />
           <option name="timeStamp" value="104" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>61</line>
+          <line>64</line>
           <properties />
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>54</line>
+          <line>57</line>
           <properties />
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>67</line>
+          <line>70</line>
           <properties />
           <option name="timeStamp" value="108" />
         </line-breakpoint>
@@ -1387,7 +1383,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseRankDownload.java</url>
-          <line>57</line>
+          <line>59</line>
           <properties />
           <option name="timeStamp" value="332" />
         </line-breakpoint>
@@ -1415,9 +1411,21 @@
           <properties />
           <option name="timeStamp" value="342" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
+          <line>279</line>
+          <properties />
+          <option name="timeStamp" value="343" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
+          <line>274</line>
+          <properties />
+          <option name="timeStamp" value="344" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>190</line>
+          <line>204</line>
           <properties method="onClick">
             <option name="EMULATED" value="true" />
           </properties>
@@ -1425,7 +1433,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>164</line>
+          <line>178</line>
           <properties method="onSuccess">
             <option name="EMULATED" value="true" />
           </properties>
@@ -1433,7 +1441,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java</url>
-          <line>171</line>
+          <line>185</line>
           <properties method="onFailure">
             <option name="EMULATED" value="true" />
           </properties>
@@ -1449,21 +1457,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_kody_szcz.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_kody.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_kaucja.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodyDonwload.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_logowanie.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/koszyk.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
@@ -1482,31 +1475,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_szukaj.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-683" />
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_realizacja.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="113" selection-start-line="113" selection-end-line="115" selection-end-column="15" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/koszykPlacowka.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="44" column="36" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="44" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -1525,13 +1497,6 @@
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody_szcz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kodyszukaj.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1591,17 +1556,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/szukaj.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="178" column="1" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="178" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#JSONDownloader3#0;class#szukaj#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/model.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1610,46 +1564,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/model_zamowienie.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="25" column="17" lean-forward="true" selection-end-line="50" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodySzczDonloader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Zamowienia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Realizacja.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="135" column="29" selection-start-line="135" selection-start-column="29" selection-end-line="135" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Kaucja.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="192" column="17" selection-start-line="192" selection-start-column="17" selection-end-line="192" selection-end-column="17" />
-          <folding>
-            <element signature="e#6873#6874#0" expanded="true" />
-            <element signature="e#6907#6908#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ListViewAdapterModelKosz.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1657,21 +1571,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Spacecraft_rank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="23" />
-          <folding>
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#613#614#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Spacecraft_rank.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Spacecraft.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1744,13 +1644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/JSONDownloader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -1762,54 +1655,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/model_ranking.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/GlobalClass.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/rejestracja.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="11" lean-forward="true" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebasePropDownload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="129" column="5" lean-forward="true" selection-start-line="122" selection-start-column="4" selection-end-line="129" selection-end-column="5" />
+        <state relative-caret-position="697">
+          <caret line="67" column="29" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ListViewAdapterModelRank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="629">
           <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking_gen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1818,57 +1684,198 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKoszykDonloader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="65" column="56" lean-forward="true" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="98" />
+        <state relative-caret-position="850">
+          <caret line="65" column="56" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="98" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/rejestracja.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebasePropDownload.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
-          <folding>
-            <element signature="e#2211#2742#0" expanded="true" />
-            <element signature="e#2741#2742#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking_gen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="62" column="45" lean-forward="true" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1853">
+          <caret line="129" column="5" selection-start-line="122" selection-start-column="4" selection-end-line="129" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/ranking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
+        <state relative-caret-position="1768">
           <caret line="120" selection-start-line="120" selection-end-line="120" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2048#2547#0" expanded="true" />
-            <element signature="e#2546#2547#0" expanded="true" />
-            <element signature="e#3978#5136#0" expanded="true" />
-            <element signature="e#5135#5136#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="891" column="18" selection-start-line="891" selection-start-column="18" selection-end-line="891" selection-end-column="18" />
+          <folding>
+            <element signature="e#42323#42324#0" expanded="true" />
+            <element signature="e#42353#42354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/PayPalConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Kaucja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="293" column="39" selection-start-line="293" selection-start-column="39" selection-end-line="293" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_kaucja.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/model_zamowienie.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="25" column="17" lean-forward="true" selection-end-line="60" selection-end-column="37" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Realizacja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1107">
+          <caret line="143" column="91" selection-start-line="143" selection-start-column="91" selection-end-line="143" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody_szcz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/Zamowienia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding>
+            <element signature="e#247#248#0" expanded="true" />
+            <element signature="e#278#279#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodyDonwload.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="67" column="65" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/kody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="108" column="45" selection-start-line="108" selection-start-column="45" selection-end-line="108" selection-end-column="45" />
+          <folding>
+            <element signature="e#4634#4635#0" expanded="true" />
+            <element signature="e#4680#4681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/model_ranking.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_realizacja.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="113" selection-start-line="113" selection-end-line="115" selection-end-column="15" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_ranking.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="11" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_szukaj.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/szukaj.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="51" column="25" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#JSONDownloader3#0;class#szukaj#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseKodySzczDonloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/FirebaseRankDownload.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+        <state relative-caret-position="590">
+          <caret line="138" column="50" selection-start-line="138" selection-start-column="50" selection-end-line="138" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1454#7725#0" expanded="true" />
-            <element signature="e#2526#7407#0" expanded="true" />
-            <element signature="e#7406#7407#0" expanded="true" />
-            <element signature="e#7724#7725#0" expanded="true" />
+            <element signature="e#8047#8215#0" expanded="true" />
+            <element signature="e#8214#8215#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/GlobalClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="111" column="60" lean-forward="true" selection-start-line="98" selection-start-column="32" selection-end-line="111" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/mobile/bibliotekaplus/logowanie_fb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="167" column="22" selection-start-line="167" selection-start-column="22" selection-end-line="167" selection-end-column="22" />
         </state>
       </provider>
     </entry>

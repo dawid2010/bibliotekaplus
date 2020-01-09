@@ -38,6 +38,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,11 +49,12 @@ public class logowanie_fb  extends AppCompatActivity {
     private LoginButton loginButton;
     private CircleImageView circleImageView;
     private TextView txtName,txtEmail;
-
+    private GlobalClass globalClass;
     private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        globalClass =(GlobalClass) getApplicationContext();
         loadUser();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logowanie_fb);
@@ -120,8 +123,17 @@ public class logowanie_fb  extends AppCompatActivity {
                                 ArrayList<String> uzytkownik = new ArrayList<>();
                                 String mailF = document.getString("mail");
                                 String hasloF = document.getString("haslo");
+                                Date dataurodzenia = document.getDate("dataUrodzenia");
+                                String plec = document.getString("plec");
                                 uzytkownik.add(mailF);
                                 uzytkownik.add(hasloF);
+                                uzytkownik.add(document.getId());
+                                Calendar cal = Calendar.getInstance();
+                                Date dzis = cal.getTime();
+                                long difference = Math.abs(dzis.getTime()-dataurodzenia.getTime());
+                                difference = difference/ (24 * 60 * 60 * 1000)/365;
+                                uzytkownik.add(difference+"");
+                                uzytkownik.add(plec);
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {
@@ -145,13 +157,15 @@ public class logowanie_fb  extends AppCompatActivity {
 
     private Boolean dodano=false;
 
-    private void addUser(String mail){
+    private void addUser(String mail, String plec, String dataUrodzenia){
         // Create a nnew user with a first and last name
         Map<String, Object> user = new HashMap<>();
         user.put("mail", mail);
         user.put("rola", 2);
         user.put("autor",2);
         user.put("haslo","Autoryzacja przez FB");
+        user.put("plec",plec);
+        user.put("dataUrodzenia",Calendar.getInstance().getTime());
         // Add a nnew document with a generated ID
         TextView editTextMail;
         editTextMail =(TextView) findViewById(R.id.profile_email);
@@ -202,16 +216,20 @@ public class logowanie_fb  extends AppCompatActivity {
         editTextMail =(TextView) findViewById(R.id.profile_email);
         String mail = editTextMail.getText().toString().trim();
         Boolean autoryzacja = false;
+        String dataurodzenia = globalClass.getUrodzinyFb();
         for(ArrayList<String> u:uzytkownicy){
             if(u.get(0).equals(mail)){
                     autoryzacja=true;
+                    globalClass.setUserId(u.get(2));
+                    globalClass.setUserWiek(Double.parseDouble(u.get(3)));
+                    globalClass.setPlec(u.get(4));
             }
             else{
                 if(mail.equals("")){
                     Toast.makeText(this,"Brak użytkownika, zarejestruj się lub zaloguj się przez social media",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    addUser(mail);
+                    addUser(mail,"M",dataurodzenia);
                 }
             }
         }
@@ -253,12 +271,13 @@ public class logowanie_fb  extends AppCompatActivity {
                     String first_name = object.getString("first_name");
                     String last_name = object.getString("last_name");
                     String email = object.getString("email");
-
+                    String dataurodzenia = object.getString("birthday");
                     String id = object.getString("id");
                     String image_url = "https://graph.facebook.com/"+id+ "/picture?type=normal";
 
                     txtEmail.setText(email);
                     txtName.setText(first_name +" "+last_name);
+                    globalClass.setUrodzinyFb(dataurodzenia);
                     RequestOptions requestOptions = new RequestOptions();
                     requestOptions.dontAnimate();
                     Glide.with(logowanie_fb.this).load(image_url).into(circleImageView);

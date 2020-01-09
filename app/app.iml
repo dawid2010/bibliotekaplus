@@ -187,7 +187,9 @@
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata-core:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:runtime:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.paypal.sdk:paypal-android-sdk:2.14.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview:3.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.lorentzos.swipecards:library:1.0.9@aar" level="project" />
+    <orderEntry type="library" name="Gradle: io.card:android-sdk:5.4.1@aar" level="project" />
   </component>
 </module>

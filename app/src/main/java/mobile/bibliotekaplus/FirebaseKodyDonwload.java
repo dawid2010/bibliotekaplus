@@ -60,10 +60,12 @@ public class FirebaseKodyDonwload {
                                         String kod = "";
                                         String data = "";
                                         String placowka = "";
+                                        Boolean platnosc = false;
                                                             String id = document.getId();
                                                             try {
                                                                  kod = document.getString("kod");
                                                                  Date cal = document.getDate("data");
+                                                                  platnosc = document.getBoolean("platnosc");
                                                                 Calendar c = Calendar.getInstance();
                                                                 c.setTime(cal);
                                                                   data = c.get(Calendar.DAY_OF_MONTH)+"/"+c.get(Calendar.MONTH)+"/"+c.get(Calendar.YEAR);
@@ -78,6 +80,7 @@ public class FirebaseKodyDonwload {
                                                             s.setKod(kod);
                                                             s.setData(data);
                                                             s.setPlacowka(placowka);
+                                                            s.setPlatnosc(platnosc);
                                         if (!findCustomerByid(kod, downloadedData)) {
                                             downloadedData.add(s);
                                         }

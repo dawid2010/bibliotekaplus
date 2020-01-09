@@ -58,12 +58,34 @@
 
         ]]>
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Data początkowa"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/eTrankStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Data końcowa"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/eTrankEnd"

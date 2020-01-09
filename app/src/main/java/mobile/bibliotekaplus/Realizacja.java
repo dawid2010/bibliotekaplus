@@ -140,6 +140,14 @@ public class Realizacja extends AppCompatActivity {
 
                                                     }
                                                 });
+                                        zamowienie.
+                                                update("platnosc",globalClass.getPlatnosc())
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+
+                                                    }
+                                                });
                                     }
 
                                 }

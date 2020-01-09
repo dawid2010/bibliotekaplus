@@ -17,6 +17,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 public class FirebaseRankDownload{
@@ -89,6 +91,7 @@ public class FirebaseRankDownload{
 
                                                                 downloadedData.add(s);
                                                             } else {
+                                                                downloadedData.remove(downloadedData.size()-1);
                                                                 i++;
                                                                 String name = daneUzytkownika.getString("tytul");
                                                                 String propellant = daneUzytkownika.getString("autor");
@@ -128,6 +131,18 @@ public class FirebaseRankDownload{
                     }
 
                 });
+        Spacecraft compare;
+        Collections.sort(downloadedData, new Comparator<Spacecraft>() {
+
+            @Override
+            public int compare(Spacecraft o1, Spacecraft o2) {
+                if(o1.getLiczba() < o1.getLiczba()){
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        });
         return downloadedData;
     }
 

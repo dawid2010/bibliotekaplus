@@ -7,7 +7,15 @@ class Zamowienia { /*
     private String data;
     private String kod;
     private String placowka;
+    private Boolean platnosc;
 
+    public Boolean getPlatnosc() {
+        return platnosc;
+    }
+
+    public void setPlatnosc(Boolean platnosc) {
+        this.platnosc = platnosc;
+    }
     /*GETTERS AND SETTERS  */
 
     public String getId() {

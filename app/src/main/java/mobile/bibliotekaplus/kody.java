@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ListView;
@@ -96,9 +97,16 @@ public class kody extends AppCompatActivity {
             TextView kod = view.findViewById(R.id.textKod);
             TextView data = view.findViewById(R.id.rejdata);
             TextView placowka = view.findViewById(R.id.textPlacowka);
+            CheckBox chkczyoplacono = (CheckBox) view.findViewById(R.id.chkczyoplacono);
 
             final Zamowienia s= (Zamowienia) this.getItem(i);
+            try {
+                chkczyoplacono.setChecked(s.getPlatnosc());
+            }
+            catch(java.lang.NullPointerException e){
 
+            }
+            chkczyoplacono.setActivated(false);
             kod.setText(s.getKod());
             data.setText(s.getData());
             placowka.setText(s.getPlacowka());

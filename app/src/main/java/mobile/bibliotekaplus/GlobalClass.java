@@ -14,6 +14,24 @@ public class GlobalClass extends Application {
     private String kodU;
     private Date rankStart;
     private Date rankEnd;
+    private Boolean platnosc;
+private String urodzinyFb;
+
+    public String getUrodzinyFb() {
+        return urodzinyFb;
+    }
+
+    public void setUrodzinyFb(String urodzinyFb) {
+        this.urodzinyFb = urodzinyFb;
+    }
+
+    public Boolean getPlatnosc() {
+        return platnosc;
+    }
+
+    public void setPlatnosc(Boolean platnosc) {
+        this.platnosc = platnosc;
+    }
 
     public Date getRankStart() {
         return rankStart;

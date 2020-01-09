@@ -291,6 +291,7 @@ public class Kaucja extends AppCompatActivity {
     }
 
     public void OnClickRealizuj(View view) {
+        globalClass.setPlatnosc(false);
         Intent intent = new Intent(this, Realizacja.class);
         intent.putExtra("placowka", placowka);
         intent.putExtra("adres", selectedMarkerUlica);
@@ -298,6 +299,7 @@ public class Kaucja extends AppCompatActivity {
         this.startActivity ( intent );
     }
     public void OnClickPaypal(View view) {
+        globalClass.setPlatnosc(true);
         paymentAmount = "10";
         double tempIntAmount = 0;
         for (Book book : books) {
