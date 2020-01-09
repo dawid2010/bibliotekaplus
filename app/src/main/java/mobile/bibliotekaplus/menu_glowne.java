@@ -23,10 +23,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.squareup.picasso.Picasso;
 
@@ -181,8 +185,50 @@ public class menu_glowne extends AppCompatActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(menu_glowne.this, addbook.class);
-                startActivity(intent);
+                Log.i("Uzutkownik",globalClass.getUserId());
+                final String[] rola = new String[1];
+                db.collection("uzytkownicy")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        String id = document.getId();
+                                        //String rola = document.getString("rola");
+                                        Log.i("Uzutkownik id ",id);
+                                        //Log.i("Uzutkownik rola ",rola);
+                                        if(id.toString().equals(globalClass.getUserId().toString()))
+                                        {
+                                            rola[0] = document.getString("rola");
+                                            Log.i("Uzutkownik rola ",rola[0]);
+                                            if(rola[0].equals("1") )
+                                            {
+                                                Intent intent = new Intent(menu_glowne.this, addbook.class);
+                                                startActivity(intent);
+                                            }
+                                            else
+                                            {
+                                                Toast.makeText(menu_glowne.this, "Opcja dostępna tylko dla administratora", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
+//                if(rola[0].equals("1") )
+//                {
+//                    Intent intent = new Intent(menu_glowne.this, addbook.class);
+//                    startActivity(intent);
+//                }
+//                else
+//                {
+//                    Toast.makeText(menu_glowne.this, "Opcja dostępna tylko dla administratora", Toast.LENGTH_SHORT).show();
+//                }
+
+
             }
         });
     }
