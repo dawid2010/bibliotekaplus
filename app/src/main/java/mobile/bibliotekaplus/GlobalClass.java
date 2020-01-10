@@ -16,6 +16,24 @@ public class GlobalClass extends Application {
     private Date rankEnd;
     private Boolean platnosc;
 private String urodzinyFb;
+private String DataUrodzenia;
+private String mail;
+
+    public String getDataUrodzenia() {
+        return DataUrodzenia;
+    }
+
+    public void setDataUrodzenia(String dataUrodzenia) {
+        DataUrodzenia = dataUrodzenia;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
     public String getUrodzinyFb() {
         return urodzinyFb;

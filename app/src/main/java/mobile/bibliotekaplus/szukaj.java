@@ -35,10 +35,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class szukaj  extends AppCompatActivity {
     private GlobalClass globalClass;
@@ -92,7 +94,7 @@ public class szukaj  extends AppCompatActivity {
     public class JSONDownloader3 {
 
         //SAVE/RETRIEVE URLS
-        private static final String JSON_DATA_URL="https://firebasestorage.googleapis.com/v0/b/bibliotekaplus.appspot.com/o/boo.json?alt=media&token=7ce32904-3b24-4492-baf5-2cad2127e7af";
+        private static final String JSON_DATA_URL="https://firebasestorage.googleapis.com/v0/b/bibliotekaplus.appspot.com/o/book.json?alt=media&token=80d0a924-e54b-43ed-8038-7ca876938953";
 
         //INSTANCE FIELDS
         private final Context c;
@@ -119,13 +121,31 @@ public class szukaj  extends AppCompatActivity {
                             Spacecraft s;
                             try
                             {
-                                for(int i=0;i<response.length();i++)
+                                for(int i=0;i<1000;i++)
                                 {
                                     jo=response.getJSONObject(i);
                                     int id=1;
                                     String title=jo.getString("title");
+                                    String kind=jo.getString("kind");
+                                    String author=jo.getString("author");
+                                    String cover="https://wolnelektury.pl/media/"+jo.getString("cover");
+                                    String epoch=jo.getString("epoch");
+                                    String genre=jo.getString("genre");
                                     Map<String, Object> ksiazka = new HashMap<>();
-                                    ksiazka.put("tytul", title);
+                                    ksiazka.put("autor", author);
+                                    ksiazka.put("dodano", Calendar.getInstance().getTime());
+                                    ksiazka.put("epoka", epoch);
+                                    ksiazka.put("gatunek", genre);
+                                    ksiazka.put("html", "");
+                                    Random rnd = new Random();
+                                    final int min = 0;
+                                    final int max = 30;
+                                    int liczba= rnd.nextInt((max-min)+1)+min;
+                                    ksiazka.put("kaucja",liczba);
+                                    ksiazka.put("okladka", cover);
+                                    ksiazka.put("rodzaj",kind);
+                                    ksiazka.put("tytul",title);
+
                                         db.collection("ksiazka")
                                                 .add(ksiazka)
                                                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -155,7 +175,6 @@ public class szukaj  extends AppCompatActivity {
                                 Toast.makeText(c, "GOOD RESPONSE BUT JAVA CAN'T PARSE JSON IT RECEIEVED. "+e.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         }
-
                         //ERROR
                         @Override
                         public void onError(ANError anError) {

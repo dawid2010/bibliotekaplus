@@ -33,17 +33,6 @@
         android:layout_centerInParent="true"
         />
 
-    <SearchView
-        android:id="@+id/mySearchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Spacecrafts Searcher"
-        android:padding="5dp"
-        android:hint="🔍 Wyszukaj"
-        android:queryHint="Search.."
-        android:textAlignment="center" />
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,20 +59,26 @@
 
 
         <TextView
-            android:textSize="20sp"
-            android:padding="5dp"
             android:id="@+id/selectedMarker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Wybierz placówkę" />
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Wybierz placówkę"
+            android:textColor="@color/cast_libraries_material_featurehighlight_text_body_color"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/selectedMarkerAdres"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:padding="5dp"
             android:text=""
-            android:textSize="20sp" />
+            android:textColor="@color/cardview_light_background"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:onClick="OnClickRealizuj"

@@ -33,12 +33,73 @@
         tools:context="info.camposha.listviewsearchjson.MainActivity">
 
 
-        <Button
-            android:id="@+id/btnDodaj"
+        <EditText
+            android:id="@+id/rejemailU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/rejhasloU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Hasło"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/rejhaslo2U"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Powtórz hasło"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/rejdataU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Data urodzenia"
+            android:inputType="date" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rejplecU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kobieta" />
+
+            <RadioButton
+                android:id="@+id/rejplecMU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mężczyżna" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnZapisUst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cast_expanded_controller_control_button_margin"
             android:background="@drawable/custom_button"
             android:text="Zapisz" />
+
+        <Button
+            android:id="@+id/btnusun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cast_libraries_material_featurehighlight_inner_radius"
+            android:background="@drawable/google_button"
+            android:text="Usuń konto" />
     </LinearLayout>
+
+
+
 
 </LinearLayout>

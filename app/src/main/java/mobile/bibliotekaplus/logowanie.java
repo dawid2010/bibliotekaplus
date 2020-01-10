@@ -119,8 +119,15 @@ public class logowanie extends AppCompatActivity {
                                 Date dzis = cal.getTime();
                                 long difference = Math.abs(dzis.getTime()-dataurodzenia.getTime());
                                 difference = difference/ (24 * 60 * 60 * 1000)/365;
+                                Calendar cal2 = Calendar.getInstance();
+                                cal2.setTime(dataurodzenia);
+                                int year = cal2.get(Calendar.YEAR);
+                                int month = cal2.get(Calendar.MONTH);
+                                int day = cal2.get(Calendar.DAY_OF_MONTH);
+                                String dataurodzeniaT = day+"-"+(month+1)+"-"+year;
                                 uzytkownik.add(difference+"");
                                 uzytkownik.add(plec);
+                                uzytkownik.add(dataurodzeniaT);
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {
@@ -144,9 +151,11 @@ public class logowanie extends AppCompatActivity {
             if(u.get(0).equals(mail)){
                 if(u.get(1).equals(haslo)){
                     autoryzacja=true;
+                    globalClass.setMail(u.get(0));
                     globalClass.setUserId(u.get(2));
                     globalClass.setUserWiek(Double.parseDouble(u.get(3)));
                     globalClass.setPlec(u.get(4));
+                    globalClass.setDataUrodzenia(u.get(5));
                 }
                 else{
                     Toast.makeText(this,"Błędne hasło",Toast.LENGTH_SHORT).show();

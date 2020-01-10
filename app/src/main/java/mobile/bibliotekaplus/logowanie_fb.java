@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +14,6 @@ import com.bumptech.glide.Glide;
 
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -27,6 +25,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -51,11 +55,12 @@ public class logowanie_fb  extends AppCompatActivity {
     private TextView txtName,txtEmail;
     private GlobalClass globalClass;
     private CallbackManager callbackManager;
-
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         globalClass =(GlobalClass) getApplicationContext();
+        mAuth = FirebaseAuth.getInstance();
         loadUser();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logowanie_fb);
@@ -73,9 +78,13 @@ public class logowanie_fb  extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult)
             {
+                handleFacebookAccessToken(loginResult.getAccessToken());
                 Toast.makeText(logowanie_fb.this,"Logowanie nastąpiło pomyślne",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(logowanie_fb.this, menu_glowne.class);
                 if(validateUser()) {
+                    startActivity(intent);
+                }
+                else{
                     startActivity(intent);
                 }
             }
@@ -114,8 +123,15 @@ public class logowanie_fb  extends AppCompatActivity {
                                 Date dzis = cal.getTime();
                                 long difference = Math.abs(dzis.getTime()-dataurodzenia.getTime());
                                 difference = difference/ (24 * 60 * 60 * 1000)/365;
+                                Calendar cal2 = Calendar.getInstance();
+                                cal2.setTime(dataurodzenia);
+                                int year = cal2.get(Calendar.YEAR);
+                                int month = cal2.get(Calendar.MONTH);
+                                int day = cal2.get(Calendar.DAY_OF_MONTH);
+                                String dataurodzeniaT = day+"-"+(month+1)+"-"+year;
                                 uzytkownik.add(difference+"");
                                 uzytkownik.add(plec);
+                                uzytkownik.add(dataurodzeniaT);
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {
@@ -146,8 +162,15 @@ public class logowanie_fb  extends AppCompatActivity {
                                 Date dzis = cal.getTime();
                                 long difference = Math.abs(dzis.getTime()-dataurodzenia.getTime());
                                 difference = difference/ (24 * 60 * 60 * 1000)/365;
+                                Calendar cal2 = Calendar.getInstance();
+                                cal2.setTime(dataurodzenia);
+                                int year = cal2.get(Calendar.YEAR);
+                                int month = cal2.get(Calendar.MONTH);
+                                int day = cal2.get(Calendar.DAY_OF_MONTH);
+                                String dataurodzeniaT = day+"-"+(month+1)+"-"+year;
                                 uzytkownik.add(difference+"");
                                 uzytkownik.add(plec);
+                                uzytkownik.add(dataurodzeniaT);
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {
@@ -215,7 +238,7 @@ public class logowanie_fb  extends AppCompatActivity {
 
     private ArrayList<ArrayList<String>> uzytkownicy = new ArrayList<>();
     private void klikDalej() {
-        Button btnMap = (Button) findViewById(R.id.logowanie_k);
+        Button btnMap = (Button) findViewById(R.id.logowanie_k_g);
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -226,6 +249,18 @@ public class logowanie_fb  extends AppCompatActivity {
             }
         });
     }
+
+    private void updateUI(FirebaseUser user) {
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
 
     private boolean validateUser(){
         /*
@@ -241,9 +276,11 @@ public class logowanie_fb  extends AppCompatActivity {
             for (ArrayList<String> u : uzytkownicy) {
                 if (u.get(0).equals(mail)) {
                     autoryzacja = true;
+                    globalClass.setMail(u.get(0));
                     globalClass.setUserId(u.get(2));
                     globalClass.setUserWiek(Double.parseDouble(u.get(3)));
                     globalClass.setPlec(u.get(4));
+                    globalClass.setDataUrodzenia(u.get(5));
                 } else {
                     if (mail.equals("")) {
                         //Toast.makeText(this, "Brak użytkownika, zarejestruj się lub zaloguj się przez social media", Toast.LENGTH_SHORT).show();
@@ -264,6 +301,28 @@ public class logowanie_fb  extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    private void handleFacebookAccessToken(AccessToken token) {
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+
+
+                            updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+    }
 
 
     private void loadUserProfile(AccessToken newAccessToken)
@@ -294,6 +353,8 @@ public class logowanie_fb  extends AppCompatActivity {
                 RequestOptions requestOptions = new RequestOptions();
                 requestOptions.dontAnimate();
                 Glide.with(logowanie_fb.this).load(image_url).into(circleImageView);
+
+
 
             }
         });

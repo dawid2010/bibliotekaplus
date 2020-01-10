@@ -33,17 +33,6 @@
         android:layout_centerInParent="true"
         />
 
-    <SearchView
-        android:id="@+id/mySearchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Spacecrafts Searcher"
-        android:padding="5dp"
-        android:hint="🔍 Wyszukaj"
-        android:queryHint="Search.."
-        android:textAlignment="center" />
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,14 +51,16 @@
             android:visibility="gone" />
 
 
-
         <TextView
-            android:padding="10dp"
-            android:textSize="25dp"
             android:id="@+id/kaucjeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:gravity="center"
+            android:padding="10dp"
+            android:text=""
+            android:textColor="@color/com_facebook_primary_button_text_color"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <ListView
             android:id="@+id/myListView"
