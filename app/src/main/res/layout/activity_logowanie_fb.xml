@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".logowanie_fb"
-    android:orientation="vertical"
+    android:background="@color/com_smart_login_code"
     android:gravity="center"
-    android:background="@drawable/tlo"
-    >
+    android:orientation="vertical"
+    tools:context=".logowanie_fb">
+
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_pic"
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/profile_pic"
-        android:background="@drawable/logo"
+
         />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="Integracja fecbook"
-        android:layout_marginTop="20dp"
         android:id="@+id/profile_name"
-        />
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Integracja fecbook"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:textSize="18sp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/profile_email"
-        />
+        android:textStyle="bold" />
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="263dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        />
+        android:layout_marginBottom="8dp" />
+
     <Button
         android:id="@+id/logowanie_k"
         android:layout_width="263dp"
@@ -56,7 +56,7 @@
         android:textAllCaps="false"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btnlogowanie_google"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent" />

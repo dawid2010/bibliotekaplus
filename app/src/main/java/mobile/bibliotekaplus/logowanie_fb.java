@@ -75,7 +75,9 @@ public class logowanie_fb  extends AppCompatActivity {
             {
                 Toast.makeText(logowanie_fb.this,"Logowanie nastąpiło pomyślne",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(logowanie_fb.this, menu_glowne.class);
-                startActivity(intent);
+                if(validateUser()) {
+                    startActivity(intent);
+                }
             }
 
             @Override
@@ -103,8 +105,17 @@ public class logowanie_fb  extends AppCompatActivity {
                                 ArrayList<String> uzytkownik = new ArrayList<>();
                                 String mailF = document.getString("mail");
                                 String hasloF = document.getString("haslo");
+                                Date dataurodzenia = document.getDate("dataUrodzenia");
+                                String plec = document.getString("plec");
                                 uzytkownik.add(mailF);
                                 uzytkownik.add(hasloF);
+                                uzytkownik.add(document.getId());
+                                Calendar cal = Calendar.getInstance();
+                                Date dzis = cal.getTime();
+                                long difference = Math.abs(dzis.getTime()-dataurodzenia.getTime());
+                                difference = difference/ (24 * 60 * 60 * 1000)/365;
+                                uzytkownik.add(difference+"");
+                                uzytkownik.add(plec);
                                 uzytkownicy.add(uzytkownik);
                             }
                         } else {
@@ -151,7 +162,7 @@ public class logowanie_fb  extends AppCompatActivity {
             if (u.get(0).equals(mail)) {
                 autoryzacja = true;
             } else {
-                Toast.makeText(this, "Brak użytkownika, zarejestruj się lub zaloguj się przez social media", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, "Brak użytkownika, zarejestruj się lub zaloguj się przez social media", Toast.LENGTH_SHORT).show();
             }
         }
         return autoryzacja;
@@ -164,8 +175,8 @@ public class logowanie_fb  extends AppCompatActivity {
         // Create a nnew user with a first and last name
         Map<String, Object> user = new HashMap<>();
         user.put("mail", mail);
-        user.put("rola", 2);
-        user.put("autor",2);
+        user.put("rola", "2");
+        user.put("autor","2");
         user.put("haslo","Autoryzacja przez FB");
         user.put("plec",plec);
         user.put("dataUrodzenia",Calendar.getInstance().getTime());
@@ -173,30 +184,32 @@ public class logowanie_fb  extends AppCompatActivity {
         TextView editTextMail;
         editTextMail =(TextView) findViewById(R.id.profile_email);
 
+            if(!dodano) {
+                if (!loadUserAuth(mail)) {
+                    dodano = true;
+                    db.collection("uzytkownicy")
+                            .add(user)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
 
-        if(!loadUserAuth(mail)) {
-            db.collection("uzytkownicy")
-                    .add(user)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            dodano=true;
 
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            dodano=false;
-                        }
-                    });
-            if(dodano){
-                Toast.makeText(this,"Dodano użytkownika",Toast.LENGTH_SHORT).show();
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                }
+                            });
+
+                } else {
+                    //Toast.makeText(this,"Użytkownik o podanym loginie już istnieje",Toast.LENGTH_SHORT).show();
+                }
             }
+        if(dodano){
+            Toast.makeText(this,"Dodano użytkownika",Toast.LENGTH_SHORT).show();
 
-        }
-        else{
-            Toast.makeText(this,"Użytkownik o podanym loginie już istnieje",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -224,9 +237,7 @@ public class logowanie_fb  extends AppCompatActivity {
         TextView editTextMail;
         editTextMail =(TextView) findViewById(R.id.profile_email);
         String mail = editTextMail.getText().toString().trim();
-        Boolean autoryzacja = true;
-        if(AccessToken.getCurrentAccessToken()!=null) {
-            autoryzacja = true;
+        Boolean autoryzacja = false;
             for (ArrayList<String> u : uzytkownicy) {
                 if (u.get(0).equals(mail)) {
                     autoryzacja = true;
@@ -235,17 +246,15 @@ public class logowanie_fb  extends AppCompatActivity {
                     globalClass.setPlec(u.get(4));
                 } else {
                     if (mail.equals("")) {
-                        Toast.makeText(this, "Brak użytkownika, zarejestruj się lub zaloguj się przez social media", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Brak użytkownika, zarejestruj się lub zaloguj się przez social media", Toast.LENGTH_SHORT).show();
                     } else {
-                        addUser(mail, "M", "");
-                        break;
+                        if(!dodano) {
+                            addUser(mail, "M", "");
+                        }
+
                     }
                 }
             }
-        }
-        else{
-            autoryzacja=false;
-        }
         return autoryzacja;
     }
 
@@ -282,7 +291,6 @@ public class logowanie_fb  extends AppCompatActivity {
                 }
                 txtEmail.setText(email);
                 txtName.setText(first_name +" "+last_name);
-                globalClass.setUrodzinyFb(dataurodzenia);
                 RequestOptions requestOptions = new RequestOptions();
                 requestOptions.dontAnimate();
                 Glide.with(logowanie_fb.this).load(image_url).into(circleImageView);

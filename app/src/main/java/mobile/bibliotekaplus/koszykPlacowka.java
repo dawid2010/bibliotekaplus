@@ -119,7 +119,7 @@ public class koszykPlacowka extends AppCompatActivity implements OnMapReadyCallb
                         if (task.isSuccessful()) {
                             Log.d(TAG, "found location");
                             Location currentLocation = (Location) task.getResult();
-                            moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), 7f);
+                            moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), 10f);
 
                             findClosestMarker(currentLocation);
                         } else {

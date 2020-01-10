@@ -16,6 +16,7 @@ import com.google.firebase.database.ServerValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -55,14 +56,11 @@ public class addbook extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Date currentTime = Calendar.getInstance().getTime();
-        DateFormat df = new SimpleDateFormat("dd MMMM yyyy HH:mm:ss z");
-        String date = df.format(Calendar.getInstance().getTime());
 
-        Log.d("Format",date.toString());
 
         Map<String, Object> book = new HashMap<>();
         book.put("autor", autor.getText().toString());
-        book.put("dodano", date.toString());
+        book.put("dodano", currentTime);
         book.put("epoka", epoka.getText().toString());
         book.put("gatunek", gatunek.getText().toString());
         book.put("kaucja", Float.parseFloat(String.valueOf(kaucja.getText())));

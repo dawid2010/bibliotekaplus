@@ -39,6 +39,7 @@ public class logowanie extends AppCompatActivity {
         animateShakeLogo();
         init();
         initFB();
+        initGoogle();
         initRejestracja();
     }
 
@@ -79,6 +80,17 @@ public class logowanie extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(logowanie.this, logowanie_fb.class);
+                startActivity(intent);
+
+            }
+        });
+    }
+    private void initGoogle(){
+        Button btnMap = (Button) findViewById(R.id.btnlogowanie_google);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(logowanie.this, logowanie_google.class);
                 startActivity(intent);
 
             }
@@ -141,11 +153,13 @@ public class logowanie extends AppCompatActivity {
                 }
             }
             else{
-                Toast.makeText(this,"Brak użytkownika, zarejestruj się lub zaloguj się przez social media",Toast.LENGTH_SHORT).show();
+                //
             }
         }
 
-
+        if(!autoryzacja){
+            Toast.makeText(this,"Brak użytkownika, zarejestruj się lub zaloguj się przez social media",Toast.LENGTH_SHORT).show();
+        }
         return autoryzacja;
     }
 }

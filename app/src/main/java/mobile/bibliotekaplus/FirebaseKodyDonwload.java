@@ -68,7 +68,7 @@ public class FirebaseKodyDonwload {
                                                                   platnosc = document.getBoolean("platnosc");
                                                                 Calendar c = Calendar.getInstance();
                                                                 c.setTime(cal);
-                                                                  data = c.get(Calendar.DAY_OF_MONTH)+"/"+c.get(Calendar.MONTH)+"/"+c.get(Calendar.YEAR);
+                                                                  data = c.get(Calendar.DAY_OF_MONTH)+"/"+(c.get(Calendar.MONTH)+1)+"/"+c.get(Calendar.YEAR);
                                                                  placowka = "Placówka nr: "+document.getDocumentReference("placowka").getId()+"";
                                                             }
                                                             catch (java.lang.NullPointerException e){

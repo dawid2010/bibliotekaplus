@@ -22,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -75,7 +76,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                         if (task.isSuccessful()) {
                             Log.d(TAG, "found location");
                             Location currentLocation = (Location) task.getResult();
-                            moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), 7f);
+                            moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), 10f);
                         } else {
                             Log.d(TAG, "null");
                             Toast.makeText(MapActivity.this, "Nie odnaleziono lokalizacji", Toast.LENGTH_SHORT).show();
@@ -150,7 +151,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Toast.makeText(this, "Map is Ready ", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Map is Ready ", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onMapReady: map is ready");
         mMap = googleMap;
 
@@ -164,14 +165,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 GeoPoint geoPoint = document.getGeoPoint("Geopoint");
+                                String id = document.getId();
+                                String nazwaOddzialu = document.getString("nazwaOddzialu");
+                                String adres = document.getString("Adres");
                                 LatLng latlngDoc = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
-                                mMap.addMarker(new MarkerOptions().position(latlngDoc).title("Oddział"));
-                                Toast.makeText(MapActivity.this, document.getId() + " => " + document.getData(), Toast.LENGTH_SHORT).show();
+                                Marker markerName = mMap.addMarker(new MarkerOptions().position(latlngDoc).title(nazwaOddzialu+"\n"+"Adres: "+adres).snippet(id));
+                                //Toast.makeText(MapActivity.this, document.getId() + " => " + document.getData(), Toast.LENGTH_SHORT).show();
 
                             }
                         } else {
                             String taskExc = task.getException()+"";
-                            Toast.makeText(MapActivity.this,taskExc , Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MapActivity.this,taskExc , Toast.LENGTH_SHORT).show();
 
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
