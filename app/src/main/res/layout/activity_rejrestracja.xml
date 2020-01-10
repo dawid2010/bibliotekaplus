@@ -64,7 +64,7 @@
             android:ems="10"
             android:hint="Data urodzenia"
             android:inputType="date"
-            android:clickable="false"/>
+            android:focusable="false"/>
 
         <RadioGroup
             android:layout_width="match_parent"

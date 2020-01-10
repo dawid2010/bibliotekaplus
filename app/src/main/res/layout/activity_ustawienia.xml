@@ -63,7 +63,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Data urodzenia"
-            android:inputType="date" />
+            android:inputType="date"
+            android:focusable="false"/>
 
         <RadioGroup
             android:layout_width="match_parent"
