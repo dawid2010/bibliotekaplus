@@ -103,7 +103,8 @@ public class menu_glowne extends AppCompatActivity {
                 @Override
                 public void onRightCardExit(Object dataObject) {
                     Spacecraft newSp = (Spacecraft) dataObject;
-                    if(newSp.getId().equals("Przesuwaj w prawo, aby dodawać do koszyka")){
+                    //if(newSp.getId().equals("Przesuwaj w prawo, aby dodawać do koszyka")){
+                    if(newSp.getId() == null){
                         makeToast(menu_glowne.this, "Tym sposobem dodajesz książki do koszyka!");
                     }
                     else {
