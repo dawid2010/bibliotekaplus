@@ -135,7 +135,7 @@ public class rejestracja extends AppCompatActivity {
                 user.put("autor", "User");
                 user.put("mail", mail.getText().toString());
                 user.put("haslo", haslo.getText().toString());
-                user.put("rola", "2");
+                user.put("rola", "2".toString());
                 user.put("plec", plec.toString());
                 user.put("dataUrodzenia",date);
 

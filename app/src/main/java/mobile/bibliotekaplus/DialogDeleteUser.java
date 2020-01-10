@@ -1,6 +1,7 @@
 package mobile.bibliotekaplus;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,11 @@ public class DialogDeleteUser extends AppCompatDialogFragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String idZamowienia="";
     private GlobalClass globalClass;
+    Context c;
+
+    public DialogDeleteUser(Context context) {
+        c = context;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -39,9 +45,11 @@ public class DialogDeleteUser extends AppCompatDialogFragment {
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Toast.makeText(getActivity(), "Konto usunięto", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getActivity(), logowanie.class);
-                                        startActivity(intent);
+                                        //Toast.makeText(getActivity(), "Konto usunięto", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(c, logowanie.class);
+                                        //startActivity(intent);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        c.startActivity(intent);
 
                                     }
                                 })

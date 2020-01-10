@@ -1,6 +1,7 @@
 package mobile.bibliotekaplus;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -37,8 +38,11 @@ public class ustawienia extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private GlobalClass globalClass;
 
+    Context context;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        context = getApplicationContext();
         loadUser();
         globalClass =(GlobalClass) getApplicationContext();
         super.onCreate(savedInstanceState);
@@ -137,13 +141,13 @@ public class ustawienia extends AppCompatActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                openDialog();
+                openDialog(context);
             }
         });
     }
 
-    public void openDialog() {
-        DialogDeleteUser exampleDialog = new DialogDeleteUser();
+    public void openDialog(Context context) {
+        DialogDeleteUser exampleDialog = new DialogDeleteUser(context);
         exampleDialog.show(getSupportFragmentManager(),"example");
     }
 
