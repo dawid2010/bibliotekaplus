@@ -109,8 +109,14 @@ public class ListViewAdapterModelRank extends BaseAdapter implements Filterable 
                         nowosci n = (nowosci) c;
                         n.openDialog(s.getId());
                     }catch (java.lang.ClassCastException e2){
-                        propozycje p = (propozycje) c;
-                        p.openDialog(s.getId());
+                        try {
+                            propozycje p = (propozycje) c;
+                            p.openDialog(s.getId());
+                        }
+                        catch (java.lang.ClassCastException e3){
+                            ranking_gen r =(ranking_gen) c;
+                            r.openDialog(s.getId());
+                        }
                     }
                 }
 

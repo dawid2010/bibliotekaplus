@@ -19,7 +19,7 @@
         android:layout_marginEnd="8dp"
         android:text="Sezonowość wypożyczeń"
         android:textIsSelectable="false"
-        android:textSize="34sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
