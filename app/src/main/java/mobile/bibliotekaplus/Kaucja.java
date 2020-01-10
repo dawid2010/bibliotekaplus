@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -111,9 +112,10 @@ public class Kaucja extends AppCompatActivity {
             @Override
             public void run() {
                 TextView kaucjeTextView = findViewById(R.id.kaucjeTextView);
+                kaucjeTextView.setMovementMethod(new ScrollingMovementMethod());
                 String textToDisplay = "";
                 for (Book book : books) {
-                    textToDisplay = textToDisplay + "\n" + book.name + " - " + " Kaucja: " + String.valueOf(book.getKaucja()) + " zł" ;
+                    textToDisplay = textToDisplay + "\n" + book.name + " - " + "\t Kaucja: " + String.valueOf(book.getKaucja()) + " zł" ;
                 }
                 kaucjeTextView.setText(textToDisplay);
                 //Toast.makeText(Kaucja.this,"gotowe" , Toast.LENGTH_SHORT).show();

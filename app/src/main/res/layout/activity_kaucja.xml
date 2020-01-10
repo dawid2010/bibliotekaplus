@@ -55,12 +55,13 @@
             android:id="@+id/kaucjeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="left"
             android:padding="10dp"
             android:text=""
             android:textColor="@color/com_facebook_primary_button_text_color"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:maxLines = "9"/>
 
         <ListView
             android:id="@+id/myListView"
