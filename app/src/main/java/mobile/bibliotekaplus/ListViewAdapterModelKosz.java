@@ -102,7 +102,7 @@ public class ListViewAdapterModelKosz extends BaseAdapter implements Filterable 
                 Toast.makeText(c, s.getName(), Toast.LENGTH_SHORT).show();
                 try {
                     koszyk k = (koszyk) c;
-                    k.openDialog(s.getId());
+                    k.openDialog(s.getId(),c);
                 }
                 catch(java.lang.ClassCastException e){
 

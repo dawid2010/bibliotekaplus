@@ -16,6 +16,7 @@ public class Spacecraft {
     private int liczba;
     /*GETTERS AND SETTERS  */
 
+
     public int getLiczba() {
         return liczba;
     }

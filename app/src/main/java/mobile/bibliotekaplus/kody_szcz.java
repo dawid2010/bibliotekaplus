@@ -1,5 +1,6 @@
 package mobile.bibliotekaplus;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -67,9 +68,9 @@ public class kody_szcz extends AppCompatActivity {
     /*
     Our custom adapter class
      */
-    public void openDialog(String ksiazkaId) {
+    public void openDialog(String ksiazkaId, Context context) {
         globalClass.setKsiazkaId(ksiazkaId);
-        DialogDelete exampleDialog = new DialogDelete();
+        DialogDelete exampleDialog = new DialogDelete(context);
         exampleDialog.show(getSupportFragmentManager(),"example");
     }
 

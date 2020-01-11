@@ -119,9 +119,9 @@ public class koszyk extends AppCompatActivity {
     /*
     Our custom adapter class
      */
-    public void openDialog(String ksiazkaId) {
+    public void openDialog(String ksiazkaId, Context c) {
         globalClass.setKsiazkaId(ksiazkaId);
-        DialogDelete exampleDialog = new DialogDelete();
+        DialogDelete exampleDialog = new DialogDelete(c);
         exampleDialog.show(getSupportFragmentManager(),"example");
     }
 

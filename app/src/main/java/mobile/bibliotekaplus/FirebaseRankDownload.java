@@ -1,7 +1,9 @@
 package mobile.bibliotekaplus;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -37,6 +39,7 @@ public class FirebaseRankDownload{
     /*
     Fetch JSON Data
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public ArrayList<Spacecraft> retrieve(final ListView mListView, final ProgressBar myProgressBar)
     {
         final ArrayList<Spacecraft> downloadedData=new ArrayList<>();
@@ -88,8 +91,8 @@ public class FirebaseRankDownload{
                                                                 s.setImageURL(imageURL);
                                                                 s.setLiczba(i);
                                                                 s.setTechnologyExists(techExists.equalsIgnoreCase("1") ? 1 : 0);
+                                                                    downloadedData.add(s);
 
-                                                                downloadedData.add(s);
                                                             } else {
                                                                 downloadedData.remove(downloadedData.size()-1);
                                                                 i++;
@@ -131,19 +134,31 @@ public class FirebaseRankDownload{
                     }
 
                 });
-        Spacecraft compare;
+        //Spacecraft compare;
         Collections.sort(downloadedData, new Comparator<Spacecraft>() {
-
             @Override
             public int compare(Spacecraft o1, Spacecraft o2) {
-                if(o1.getLiczba() < o1.getLiczba()){
+                if(o1.getLiczba() > o1.getLiczba()){
                     return 1;
                 } else {
                     return -1;
                 }
             }
         });
+
         return downloadedData;
+    }
+
+
+    class Sortbyroll implements Comparator<Spacecraft>
+    {
+        // Used for sorting in ascending order of
+        // roll number
+
+        @Override
+        public int compare(Spacecraft o1, Spacecraft o2) {
+            return o1.getLiczba() - o2.getLiczba();
+        }
     }
 
     private Boolean findCustomerByid(String id, ArrayList<Spacecraft> customers ){
