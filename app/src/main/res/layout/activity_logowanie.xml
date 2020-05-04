@@ -9,6 +9,23 @@
     >
 
     <Button
+        android:id="@+id/logowanie_tel"
+        android:layout_width="263dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/tel_button"
+        android:text="Zaloguj się Telefonem"
+        android:textAllCaps="false"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnlogowanie_google"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/logowanie_d"
         android:layout_width="263dp"
         android:layout_height="60dp"
@@ -20,9 +37,9 @@
         android:textAllCaps="false"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnlogowanie_google"
+        app:layout_constraintBottom_toTopOf="@+id/logowanie_tel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -39,7 +56,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/logowanie_fb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -71,11 +88,11 @@
 
     <Button
         android:id="@+id/logowanie_fb"
-        android:layout_width="263dp"
-        android:layout_height="60dp"
+        android:layout_width="257dp"
+        android:layout_height="62dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/fb_button"
         android:text="Zaloguj się przez Facebook"
         android:textAllCaps="false"
@@ -83,6 +100,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText

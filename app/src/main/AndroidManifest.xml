@@ -52,6 +52,7 @@
         <activity android:name=".ranking" />
         <activity android:name=".ranking_gen" />
         <activity android:name=".logowanie_google" />
+        <activity android:name=".logowanie_tel" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCUI864TMgeS2gWTf2u6TITPPDuQms4TjA" />
