@@ -171,9 +171,16 @@ public class logowanie extends AppCompatActivity {
         String mail = editTextMail.getText().toString().trim();
         String haslo = editTextHaslo.getText().toString().trim();
         Boolean autoryzacja = false;
+        String encrypted_haslo = "";
+        AESEncyption aes = new AESEncyption();
+        try {
+            encrypted_haslo = aes.encrypt(haslo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         for (ArrayList<String> u : uzytkownicy) {
             if (u.get(0).equals(mail)) {
-                if (u.get(1).equals(haslo)) {
+                if (u.get(1).equals(encrypted_haslo)) {
                     autoryzacja = true;
                     globalClass.setMail(u.get(0));
                     globalClass.setUserId(u.get(2));

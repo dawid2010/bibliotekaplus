@@ -221,8 +221,15 @@ public class ustawienia extends AppCompatActivity {
 
                                     }
                                 });
+                        AESEncyption aes = new AESEncyption();
+                        String encrypted_haslo = "";
+                        try {
+                            encrypted_haslo = aes.encrypt(haslo.getText().toString());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         db.collection("uzytkownicy").document(globalClass.getUserId())
-                        .update("haslo", haslo.getText().toString())
+                        .update("haslo", encrypted_haslo)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {

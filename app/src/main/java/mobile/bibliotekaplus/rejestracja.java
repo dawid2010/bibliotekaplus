@@ -131,10 +131,17 @@ public class rejestracja extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+                String encrypted_haslo = haslo.getText().toString();
+                AESEncyption aes = new AESEncyption();
+                try {
+                    encrypted_haslo = aes.encrypt(encrypted_haslo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 Map<String, Object> user = new HashMap<>();
                 user.put("autor", "User");
                 user.put("mail", mail.getText().toString());
-                user.put("haslo", haslo.getText().toString());
+                user.put("haslo", encrypted_haslo);
                 user.put("rola", "2".toString());
                 user.put("plec", plec.toString());
                 user.put("dataUrodzenia",date);
