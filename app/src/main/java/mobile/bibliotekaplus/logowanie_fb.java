@@ -17,6 +17,7 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
@@ -59,13 +60,15 @@ public class logowanie_fb  extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         globalClass =(GlobalClass) getApplicationContext();
         mAuth = FirebaseAuth.getInstance();
         loadUser();
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_logowanie_fb);
 
-        loginButton = findViewById(R.id.login_button);
+        loginButton = findViewById(R.id.login_button_fb);
         txtName = findViewById(R.id.profile_name);
         txtEmail = findViewById(R.id.profile_email);
         circleImageView = findViewById(R.id.profile_pic);

@@ -55,7 +55,7 @@
         <activity android:name=".logowanie_tel" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCUI864TMgeS2gWTf2u6TITPPDuQms4TjA" />
+            android:value= />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

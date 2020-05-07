@@ -53,6 +53,8 @@ public class logowanie_tel extends AppCompatActivity {
     String codeSent;
     private GlobalClass globalClass;
     private CallbackManager callbackManager;
+    private String mAuthVerificationId;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         globalClass = (GlobalClass) getApplicationContext();
@@ -60,6 +62,7 @@ public class logowanie_tel extends AppCompatActivity {
         setContentView(R.layout.activity_logowanie_tel);
         mAuth = FirebaseAuth.getInstance();
         loadUser();
+        mAuthVerificationId = getIntent().getStringExtra("AuthCredentials");
         callbackManager = CallbackManager.Factory.create();
         editTextCode = findViewById(R.id.editTextCode);
         editTextPhone = findViewById(R.id.editTextPhone);
@@ -81,12 +84,10 @@ public class logowanie_tel extends AppCompatActivity {
     }
 
 
-
     private void verifySignInCode() {
         String code = editTextCode.getText().toString();
         verifyCode(codeSent);
     }
-
 
 
     private ArrayList<ArrayList<String>> uzytkownicy = new ArrayList<>();
@@ -260,11 +261,11 @@ public class logowanie_tel extends AppCompatActivity {
 
     private void verifyCode(String code) {
         try {
-            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(code, code);
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mAuthVerificationId, code);
             signInWithPhoneAuthCredential(credential);
-        }catch (Exception e){
-            Toast toast = Toast.makeText(this, "Verification Code is wrong", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER,0,0);
+        } catch (Exception e) {
+            Toast toast = Toast.makeText(this, "Kod weryfikacyjny jest zły", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         }
 
@@ -287,7 +288,6 @@ public class logowanie_tel extends AppCompatActivity {
                                 startActivity(intent);
                             }
                         } else {
-
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Toast.makeText(getApplicationContext(),
                                         "Błędny kod", Toast.LENGTH_LONG).show();
@@ -304,20 +304,18 @@ public class logowanie_tel extends AppCompatActivity {
             editTextPhone.setError("Podaj poprawnie numer telefonu");
             editTextPhone.requestFocus();
             return;
-        }
-
-        if (phone.length() < 10) {
+        } else if (phone.length() < 10) {
             editTextPhone.setError("Podaj poprawny numer telefonu, podaj numer kraju +48");
             editTextPhone.requestFocus();
             return;
+        } else {
+            PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    phone,        // Phone number to verify
+                    60,                 // Timeout duration
+                    TimeUnit.SECONDS,   // Unit of timeout
+                    this,               // Activity (for callback binding)
+                    mCallbacks);        // OnVerificationStateChangedCallbacks
         }
-
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phone,        // Phone number to verify
-                60,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                this,               // Activity (for callback binding)
-                mCallbacks);        // OnVerificationStateChangedCallbacks
     }
 
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -337,6 +335,8 @@ public class logowanie_tel extends AppCompatActivity {
         @Override
         public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
+            Toast.makeText(getApplicationContext(),
+                    "Przesłany kod autoryzacji", Toast.LENGTH_LONG).show();
             codeSent = s;
         }
     };
